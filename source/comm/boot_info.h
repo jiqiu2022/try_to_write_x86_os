@@ -10,7 +10,7 @@ typedef struct _boot_info_t
        uint32_t size;
 
     }ram_region_cfg[BOOT_RAM_REGION_MAX];
-    
+    int ram_region_count;
 }boot_info_t;
 
 #endif

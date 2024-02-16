@@ -7,31 +7,38 @@ start address 0x00008000
 
 Program Header:
     LOAD off    0x00001000 vaddr 0x00008000 paddr 0x00008000 align 2**12
-         filesz 0x00000065 memsz 0x00000065 flags r-x
+         filesz 0x000001cd memsz 0x000001cd flags r-x
+    LOAD off    0x000011e0 vaddr 0x000091e0 paddr 0x000091e0 align 2**12
+         filesz 0x00000000 memsz 0x00000054 flags rw-
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000055  00008000  00008000  00001000  2**0
+  0 .text         00000194  00008000  00008000  00001000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .rodata       00000010  00008055  00008055  00001055  2**0
+  1 .rodata       00000039  00008194  00008194  00001194  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .comment      00000011  00000000  00000000  00001065  2**0
+  2 .bss          00000054  000091e0  000091e0  000011e0  2**5
+                  ALLOC
+  3 .comment      00000011  00000000  00000000  000011cd  2**0
                   CONTENTS, READONLY
-  3 .debug_aranges 00000040  00000000  00000000  00001078  2**3
+  4 .debug_aranges 00000040  00000000  00000000  000011e0  2**3
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_info   00000123  00000000  00000000  000010b8  2**0
+  5 .debug_info   000002a1  00000000  00000000  00001220  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_abbrev 00000091  00000000  00000000  000011db  2**0
+  6 .debug_abbrev 0000011d  00000000  00000000  000014c1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   000000f2  00000000  00000000  0000126c  2**0
+  7 .debug_line   00000188  00000000  00000000  000015de  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_frame  0000004c  00000000  00000000  00001360  2**2
+  8 .debug_frame  00000078  00000000  00000000  00001768  2**2
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_str    00000162  00000000  00000000  000013ac  2**0
+  9 .debug_str    00000249  00000000  00000000  000017e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000018  00000000  00000000  00001a29  2**0
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00008000 l    d  .text	00000000 .text
-00008055 l    d  .rodata	00000000 .rodata
+00008194 l    d  .rodata	00000000 .rodata
+000091e0 l    d  .bss	00000000 .bss
 00000000 l    d  .comment	00000000 .comment
 00000000 l    d  .debug_aranges	00000000 .debug_aranges
 00000000 l    d  .debug_info	00000000 .debug_info
@@ -39,14 +46,17 @@ SYMBOL TABLE:
 00000000 l    d  .debug_line	00000000 .debug_line
 00000000 l    d  .debug_frame	00000000 .debug_frame
 00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
 00000000 l    df *ABS*	00000000 loader_16.c
+000091e0 l     O .bss	00000054 boot_info
 00008003 l     F .text	0000003b show_msg
+0000803e l     F .text	00000139 detect_memory
 00000000 l    df *ABS*	00000000 loader_32.c
-0000803e g     F .text	00000017 loader_entry
+00008177 g     F .text	0000001d loader_entry
 00008000 g       .text	00000000 _start
-00009065 g       .rodata	00000000 __bss_start
-00009065 g       .rodata	00000000 _edata
-00009068 g       .rodata	00000000 _end
+000091cd g       .bss	00000000 __bss_start
+000091cd g       .bss	00000000 _edata
+00009234 g       .bss	00000000 _end
 
 
 
@@ -58,27 +68,29 @@ Disassembly of section .text:
 	.global _start
 _start:
 
-    8000:	e9 3b 00             	jmp    803e <loader_entry>
+    8000:	e9 74 01             	jmp    8177 <loader_entry>
 
 00008003 <show_msg>:
-__asm__(".code16gcc");
+static boot_info_t boot_info;			// 启动参数信息
 
-
-static void show_msg(const char * msg)
-{
+/**
+ * BIOS下显示字符串
+ */
+static void show_msg (const char * msg) {
     8003:	66 55                	push   %ebp
     8005:	66 89 e5             	mov    %esp,%ebp
     8008:	66 83 ec 10          	sub    $0x10,%esp
     char c;
-    while ((c=*msg++)!='\0')
+
+	// 使用bios写显存，持续往下写
+	while ((c = *msg++) != '\0') {
     800c:	eb 0c                	jmp    801a <show_msg+0x17>
-    {
-        __asm__ __volatile__(
+		__asm__ __volatile__(
     800e:	67 66 0f b6 45 ff    	movzbl -0x1(%ebp),%eax
     8014:	b4 0e                	mov    $0xe,%ah
     8016:	88 c0                	mov    %al,%al
     8018:	cd 10                	int    $0x10
-    while ((c=*msg++)!='\0')
+	while ((c = *msg++) != '\0') {
     801a:	67 66 8b 45 08       	mov    0x8(%ebp),%eax
     801f:	67 66 8d 50 01       	lea    0x1(%eax),%edx
     8024:	67 66 89 55 08       	mov    %edx,0x8(%ebp)
@@ -86,23 +98,151 @@ static void show_msg(const char * msg)
     802e:	67 88 45 ff          	mov    %al,-0x1(%ebp)
     8032:	67 80 7d ff 00       	cmpb   $0x0,-0x1(%ebp)
     8037:	75 d5                	jne    800e <show_msg+0xb>
-            "int $0x10"::[ch]"r"(c)
-
-        );
-    }
-    
+				"mov $0xe, %%ah\n\t"
+				"mov %[ch], %%al\n\t"
+				"int $0x10"::[ch]"r"(c));
+	}
 }
     8039:	90                   	nop
     803a:	66 c9                	leavel 
     803c:	66 c3                	retl   
 
-0000803e <loader_entry>:
-void loader_entry(void) {
+0000803e <detect_memory>:
+
+// 参考：https://wiki.osdev.org/Memory_Map_(x86)
+// 1MB以下比较标准, 在1M以上会有差别
+// 检测：https://wiki.osdev.org/Detecting_Memory_(x86)#BIOS_Function:_INT_0x15.2C_AH_.3D_0xC7
+static void  detect_memory(void) {
     803e:	66 55                	push   %ebp
     8040:	66 89 e5             	mov    %esp,%ebp
-    show_msg("loading......\n\r");
-    8043:	66 68 55 80 00 00    	pushl  $0x8055
-    8049:	66 e8 b4 ff ff ff    	calll  8003 <show_msg>
-    804f:	66 83 c4 04          	add    $0x4,%esp
+    8043:	66 57                	push   %edi
+    8045:	66 56                	push   %esi
+    8047:	66 53                	push   %ebx
+    8049:	66 83 ec 30          	sub    $0x30,%esp
+	uint32_t contID = 0;
+    804d:	67 66 c7 45 f0 00 00 	movl   $0x0,-0x10(%ebp)
+    8054:	00 00 
+	SMAP_entry_t smap_entry;
+	int signature, bytes;
+
+    show_msg("try to detect memory:");
+    8056:	66 68 94 81 00 00    	pushl  $0x8194
+    805c:	66 e8 a1 ff ff ff    	calll  8003 <show_msg>
+    8062:	66 83 c4 04          	add    $0x4,%esp
+
+	// 初次：EDX=0x534D4150,EAX=0xE820,ECX=24,INT 0x15, EBX=0（初次）
+	// 后续：EAX=0xE820,ECX=24,
+	// 结束判断：EBX=0
+	boot_info.ram_region_count = 0;
+    8066:	66 c7 06 30 92 00 00 	movl   $0x0,-0x6dd0
+    806d:	00 00 
+	for (int i = 0; i < BOOT_RAM_REGION_MAX; i++) {
+    806f:	67 66 c7 45 ec 00 00 	movl   $0x0,-0x14(%ebp)
+    8076:	00 00 
+    8078:	e9 d0 00             	jmp    814b <detect_memory+0x10d>
+		SMAP_entry_t * entry = &smap_entry;
+    807b:	67 66 8d 45 c8       	lea    -0x38(%ebp),%eax
+    8080:	67 66 89 45 e8       	mov    %eax,-0x18(%ebp)
+
+		__asm__ __volatile__("int  $0x15"
+    8085:	66 b8 20 e8 00 00    	mov    $0xe820,%eax
+    808b:	67 66 8b 5d f0       	mov    -0x10(%ebp),%ebx
+    8090:	66 b9 18 00 00 00    	mov    $0x18,%ecx
+    8096:	66 ba 50 41 4d 53    	mov    $0x534d4150,%edx
+    809c:	67 66 8b 75 e8       	mov    -0x18(%ebp),%esi
+    80a1:	66 89 f7             	mov    %esi,%edi
+    80a4:	cd 15                	int    $0x15
+    80a6:	66 89 da             	mov    %ebx,%edx
+    80a9:	67 66 89 45 e4       	mov    %eax,-0x1c(%ebp)
+    80ae:	67 66 89 4d e0       	mov    %ecx,-0x20(%ebp)
+    80b3:	67 66 89 55 f0       	mov    %edx,-0x10(%ebp)
+			: "=a"(signature), "=c"(bytes), "=b"(contID)
+			: "a"(0xE820), "b"(contID), "c"(24), "d"(0x534D4150), "D"(entry));
+		if (signature != 0x534D4150) {
+    80b8:	67 66 81 7d e4 50 41 	cmpl   $0x534d4150,-0x1c(%ebp)
+    80bf:	4d 53 
+    80c1:	74 13                	je     80d6 <detect_memory+0x98>
+            show_msg("failed.\r\n");
+    80c3:	66 68 aa 81 00 00    	pushl  $0x81aa
+    80c9:	66 e8 34 ff ff ff    	calll  8003 <show_msg>
+    80cf:	66 83 c4 04          	add    $0x4,%esp
+			return;
+    80d3:	e9 92 00             	jmp    8168 <detect_memory+0x12a>
+		}
+
+		// todo: 20字节
+		if (bytes > 20 && (entry->ACPI & 0x0001) == 0){
+    80d6:	67 66 83 7d e0 14    	cmpl   $0x14,-0x20(%ebp)
+    80dc:	7e 13                	jle    80f1 <detect_memory+0xb3>
+    80de:	67 66 8b 45 e8       	mov    -0x18(%ebp),%eax
+    80e3:	67 66 8b 40 14       	mov    0x14(%eax),%eax
+    80e8:	66 83 e0 01          	and    $0x1,%eax
+    80ec:	66 85 c0             	test   %eax,%eax
+    80ef:	74 53                	je     8144 <detect_memory+0x106>
+			continue;
+		}
+
+        // 保存RAM信息，只取32位，空间有限无需考虑更大容量的情况
+        if (entry->Type == 1) {
+    80f1:	67 66 8b 45 e8       	mov    -0x18(%ebp),%eax
+    80f6:	67 66 8b 40 10       	mov    0x10(%eax),%eax
+    80fb:	66 83 f8 01          	cmp    $0x1,%eax
+    80ff:	75 39                	jne    813a <detect_memory+0xfc>
+            boot_info.ram_region_cfg[boot_info.ram_region_count].start = entry->BaseL;
+    8101:	66 a1 30 92          	mov    0x9230,%eax
+    8105:	67 66 8b 55 e8       	mov    -0x18(%ebp),%edx
+    810a:	67 66 8b 12          	mov    (%edx),%edx
+    810e:	67 66 89 14 c5 e0 91 	mov    %edx,0x91e0(,%eax,8)
+    8115:	00 00 
+            boot_info.ram_region_cfg[boot_info.ram_region_count].size = entry->LengthL;
+    8117:	66 a1 30 92          	mov    0x9230,%eax
+    811b:	67 66 8b 55 e8       	mov    -0x18(%ebp),%edx
+    8120:	67 66 8b 52 08       	mov    0x8(%edx),%edx
+    8125:	67 66 89 14 c5 e4 91 	mov    %edx,0x91e4(,%eax,8)
+    812c:	00 00 
+            boot_info.ram_region_count++;
+    812e:	66 a1 30 92          	mov    0x9230,%eax
+    8132:	66 83 c0 01          	add    $0x1,%eax
+    8136:	66 a3 30 92          	mov    %eax,0x9230
+        }
+
+		if (contID == 0) {
+    813a:	67 66 83 7d f0 00    	cmpl   $0x0,-0x10(%ebp)
+    8140:	74 15                	je     8157 <detect_memory+0x119>
+    8142:	eb 01                	jmp    8145 <detect_memory+0x107>
+			continue;
+    8144:	90                   	nop
+	for (int i = 0; i < BOOT_RAM_REGION_MAX; i++) {
+    8145:	67 66 83 45 ec 01    	addl   $0x1,-0x14(%ebp)
+    814b:	67 66 83 7d ec 09    	cmpl   $0x9,-0x14(%ebp)
+    8151:	0f 8e 26 ff          	jle    807b <detect_memory+0x3d>
+    8155:	eb 01                	jmp    8158 <detect_memory+0x11a>
+			break;
+    8157:	90                   	nop
+		}
+	}
+    show_msg("ok.\r\n");
+    8158:	66 68 b4 81 00 00    	pushl  $0x81b4
+    815e:	66 e8 9f fe ff ff    	calll  8003 <show_msg>
+    8164:	66 83 c4 04          	add    $0x4,%esp
+}
+    8168:	67 66 8d 65 f4       	lea    -0xc(%ebp),%esp
+    816d:	66 5b                	pop    %ebx
+    816f:	66 5e                	pop    %esi
+    8171:	66 5f                	pop    %edi
+    8173:	66 5d                	pop    %ebp
+    8175:	66 c3                	retl   
+
+00008177 <loader_entry>:
+
+void loader_entry(void) {
+    8177:	66 55                	push   %ebp
+    8179:	66 89 e5             	mov    %esp,%ebp
+    show_msg("....loading.....\r\n");
+    817c:	66 68 ba 81 00 00    	pushl  $0x81ba
+    8182:	66 e8 7b fe ff ff    	calll  8003 <show_msg>
+    8188:	66 83 c4 04          	add    $0x4,%esp
+	detect_memory();
+    818c:	66 e8 ac fe ff ff    	calll  803e <detect_memory>
     for(;;) {}
-    8053:	eb fe                	jmp    8053 <loader_entry+0x15>
+    8192:	eb fe                	jmp    8192 <loader_entry+0x1b>
