@@ -90,14 +90,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(CMAKE_COMMAND) -E cmake_progress_start C:/Users/jiqiu2021/Desktop/coded/start/start/build/CMakeFiles C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/boot//CMakeFiles/progress.marks
-	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/boot/all
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(CMAKE_COMMAND) -E cmake_progress_start C:/Users/jiqiu2021/Desktop/coded/start/start/build/CMakeFiles C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/loader//CMakeFiles/progress.marks
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/loader/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:/Users/jiqiu2021/Desktop/coded/start/start/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/boot/clean
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/loader/clean
 .PHONY : clean
 
 # The main clean target
@@ -106,12 +106,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/boot/preinstall
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/loader/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/boot/preinstall
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/loader/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -120,49 +120,73 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-source/boot/CMakeFiles/boot.dir/rule:
-	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/boot/CMakeFiles/boot.dir/rule
-.PHONY : source/boot/CMakeFiles/boot.dir/rule
+source/loader/CMakeFiles/loader.dir/rule:
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/loader/CMakeFiles/loader.dir/rule
+.PHONY : source/loader/CMakeFiles/loader.dir/rule
 
 # Convenience name for target.
-boot: source/boot/CMakeFiles/boot.dir/rule
-.PHONY : boot
+loader: source/loader/CMakeFiles/loader.dir/rule
+.PHONY : loader
 
 # fast build rule for target.
-boot/fast:
-	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/boot/CMakeFiles/boot.dir/build.make source/boot/CMakeFiles/boot.dir/build
-.PHONY : boot/fast
+loader/fast:
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/loader/CMakeFiles/loader.dir/build.make source/loader/CMakeFiles/loader.dir/build
+.PHONY : loader/fast
 
-boot.obj: boot.c.obj
-.PHONY : boot.obj
+loader_16.obj: loader_16.c.obj
+.PHONY : loader_16.obj
 
 # target to build an object file
-boot.c.obj:
-	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/boot/CMakeFiles/boot.dir/build.make source/boot/CMakeFiles/boot.dir/boot.c.obj
-.PHONY : boot.c.obj
+loader_16.c.obj:
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/loader/CMakeFiles/loader.dir/build.make source/loader/CMakeFiles/loader.dir/loader_16.c.obj
+.PHONY : loader_16.c.obj
 
-boot.i: boot.c.i
-.PHONY : boot.i
+loader_16.i: loader_16.c.i
+.PHONY : loader_16.i
 
 # target to preprocess a source file
-boot.c.i:
-	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/boot/CMakeFiles/boot.dir/build.make source/boot/CMakeFiles/boot.dir/boot.c.i
-.PHONY : boot.c.i
+loader_16.c.i:
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/loader/CMakeFiles/loader.dir/build.make source/loader/CMakeFiles/loader.dir/loader_16.c.i
+.PHONY : loader_16.c.i
 
-boot.s: boot.c.s
-.PHONY : boot.s
+loader_16.s: loader_16.c.s
+.PHONY : loader_16.s
 
 # target to generate assembly for a file
-boot.c.s:
-	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/boot/CMakeFiles/boot.dir/build.make source/boot/CMakeFiles/boot.dir/boot.c.s
-.PHONY : boot.c.s
+loader_16.c.s:
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/loader/CMakeFiles/loader.dir/build.make source/loader/CMakeFiles/loader.dir/loader_16.c.s
+.PHONY : loader_16.c.s
+
+loader_32.obj: loader_32.c.obj
+.PHONY : loader_32.obj
+
+# target to build an object file
+loader_32.c.obj:
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/loader/CMakeFiles/loader.dir/build.make source/loader/CMakeFiles/loader.dir/loader_32.c.obj
+.PHONY : loader_32.c.obj
+
+loader_32.i: loader_32.c.i
+.PHONY : loader_32.i
+
+# target to preprocess a source file
+loader_32.c.i:
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/loader/CMakeFiles/loader.dir/build.make source/loader/CMakeFiles/loader.dir/loader_32.c.i
+.PHONY : loader_32.c.i
+
+loader_32.s: loader_32.c.s
+.PHONY : loader_32.s
+
+# target to generate assembly for a file
+loader_32.c.s:
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/loader/CMakeFiles/loader.dir/build.make source/loader/CMakeFiles/loader.dir/loader_32.c.s
+.PHONY : loader_32.c.s
 
 start.obj: start.S.obj
 .PHONY : start.obj
 
 # target to build an object file
 start.S.obj:
-	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/boot/CMakeFiles/boot.dir/build.make source/boot/CMakeFiles/boot.dir/start.S.obj
+	cd C:/Users/jiqiu2021/Desktop/coded/start/start/build && $(MAKE) $(MAKESILENT) -f source/loader/CMakeFiles/loader.dir/build.make source/loader/CMakeFiles/loader.dir/start.S.obj
 .PHONY : start.S.obj
 
 # Help Target
@@ -173,10 +197,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... boot"
-	@echo "... boot.obj"
-	@echo "... boot.i"
-	@echo "... boot.s"
+	@echo "... loader"
+	@echo "... loader_16.obj"
+	@echo "... loader_16.i"
+	@echo "... loader_16.s"
+	@echo "... loader_32.obj"
+	@echo "... loader_32.i"
+	@echo "... loader_32.s"
 	@echo "... start.obj"
 .PHONY : help
 
