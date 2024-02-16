@@ -1,0 +1,12 @@
+[
+{
+  "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/boot",
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/boot.dir/includes_ASM.rsp -m32 -g -g -o CMakeFiles/boot.dir/start.S.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/boot/start.S",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/boot/start.S"
+},
+{
+  "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/boot",
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/boot.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/boot.dir/boot.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/boot/boot.c",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/boot/boot.c"
+}
+]
