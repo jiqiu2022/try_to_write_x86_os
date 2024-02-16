@@ -14,8 +14,9 @@
   	.code16
  	.text
 	.global _start
+	.extern boot_entry
 _start:
-	// 重置数据段寄存器 
+	// 重置数据段寄存器
 	mov $0, %ax
 	mov %ax, %ds
 	mov %ax, %ss
@@ -43,9 +44,15 @@ read_loader:
 	int $0x13
 	jc read_loader
 
+	// 跳转至c部分执行，再由c部分做一些处理
+	jmp boot_entry
+
 	// 原地跳转
 	jmp .
 
 	// 引导结束段
 	.section boot_end, "ax"
 boot_sig: .byte 0x55, 0xaa
+
+
+
