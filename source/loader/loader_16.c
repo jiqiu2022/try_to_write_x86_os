@@ -12,9 +12,29 @@
 __asm__(".code16gcc");
 
 #include "loader.h"
-
+#include "comm/cpu_instr.h"
 static boot_info_t boot_info;			// 启动参数信息
+uint16_t gdt_table[][4] = {
+    {0, 0, 0, 0},
+    {0xFFFF, 0x0000, 0x9A00, 0x00CF},
+    {0xFFFF, 0x0000, 0x9200, 0x00CF},
+};
 
+static void enter_protect_mode(){
+	cli();
+	// 打开A20地址线
+	uint8_t v =inb(0x92);
+	outb(0x92,v|0x2);
+	
+
+	lgdt((uint32_t)gdt_table,sizeof(gdt_table));
+	
+	uint32_t cr0 =read_cr0();
+	write_cr0(cr0|(1<<0));
+
+	far_jump(8,(uint32_t)protect_mode_entry);
+
+}
 /**
  * BIOS下显示字符串
  */
@@ -77,6 +97,7 @@ static void  detect_memory(void) {
 void loader_entry(void) {
     show_msg("....loading.....\r\n");
 	detect_memory();
+	enter_protect_mode();
     for(;;) {}
 }
 

@@ -5,7 +5,8 @@ source/loader/CMakeFiles/loader.dir/loader_16.c.obj: ../source/loader/loader_16.
   ../source/loader/loader.h \
   ../source/comm/types.h \
   ../source/comm/boot_info.h \
-  ../source/comm/types.h
+  ../source/comm/types.h \
+  ../source/comm/cpu_instr.h
 
 source/loader/CMakeFiles/loader.dir/loader_32.c.obj: ../source/loader/loader_32.c
 
@@ -17,5 +18,7 @@ source/loader/CMakeFiles/loader.dir/loader_32.c.obj: ../source/loader/loader_32.
 ../source/loader/loader.h:
 
 ../source/comm/types.h:
+
+../source/comm/cpu_instr.h:
 
 ../source/loader/loader_32.c:

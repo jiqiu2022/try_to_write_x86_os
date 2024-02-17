@@ -4,7 +4,7 @@
 #include "comm/types.h"
 #include "comm/boot_info.h"
 
-
+void protect_mode_entry (void);
 // 内存检测信息结构
 typedef struct SMAP_entry {
     uint32_t BaseL; // base address uint64_t
