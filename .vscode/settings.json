@@ -9,6 +9,7 @@
         "types.h": "c",
         "fcntl.h": "c",
         "_default_fcntl.h": "c",
-        "boot.h": "c"
+        "boot.h": "c",
+        "loader.h": "c"
     },
 }
