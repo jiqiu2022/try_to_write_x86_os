@@ -12,7 +12,7 @@
 __asm__(".code16gcc");
 
 #include "loader.h"
-static boot_info_t boot_info;			// 启动参数信息
+boot_info_t boot_info;			// 启动参数信息
 uint16_t gdt_table[][4] = {
     {0, 0, 0, 0},
     {0xFFFF, 0x0000, 0x9A00, 0x00CF},

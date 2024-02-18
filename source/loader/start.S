@@ -18,4 +18,10 @@ protect_mode_entry:
     mov %ax, %es
     mov %ax, %fs
     mov %ax, %gs
+
+	push %ebp
+	mov %esp,%ebp
+	mov 0x8(%ebp),%eax
+	push %eax
+
 	jmp $8, $load_kernel

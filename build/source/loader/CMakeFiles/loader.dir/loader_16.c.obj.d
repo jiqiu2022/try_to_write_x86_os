@@ -4,4 +4,5 @@ source/loader/CMakeFiles/loader.dir/loader_16.c.obj: \
  C:/Users/jiqiu2021/Desktop/coded/start/start/source/comm/types.h \
  C:/Users/jiqiu2021/Desktop/coded/start/start/source/comm/boot_info.h \
  C:/Users/jiqiu2021/Desktop/coded/start/start/source/comm/types.h \
- C:/Users/jiqiu2021/Desktop/coded/start/start/source/comm/cpu_instr.h
+ C:/Users/jiqiu2021/Desktop/coded/start/start/source/comm/cpu_instr.h \
+ C:/Users/jiqiu2021/Desktop/coded/start/start/source/comm/elf.h

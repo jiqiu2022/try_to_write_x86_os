@@ -6,3 +6,6 @@ C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/boot/CMakeFiles/rebuil
 C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/loader/CMakeFiles/loader.dir
 C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/loader/CMakeFiles/edit_cache.dir
 C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/loader/CMakeFiles/rebuild_cache.dir
+C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/kernel/CMakeFiles/kernel.dir
+C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/kernel/CMakeFiles/edit_cache.dir
+C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/kernel/CMakeFiles/rebuild_cache.dir

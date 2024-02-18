@@ -4,6 +4,7 @@
 #include "comm/types.h"
 #include "comm/boot_info.h"
 #include "comm/cpu_instr.h"
+#include "comm/elf.h"
 void protect_mode_entry (void);
 // 内存检测信息结构
 typedef struct SMAP_entry {
@@ -15,5 +16,5 @@ typedef struct SMAP_entry {
     uint32_t ACPI; // extended
 }__attribute__((packed)) SMAP_entry_t;
 
-
+extern boot_info_t boot_info;
 #endif // LOADER_H
