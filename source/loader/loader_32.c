@@ -4,14 +4,17 @@
 
 
 
-static uint32_t reload_elf_file(uint8_t * file_buffer)
-{
-    Elf32_Ehdr *elf_hdr =(Elf32_Ehdr *)file_buffer;
-     if ((elf_hdr->e_ident[0] != ELF_MAGIC) || (elf_hdr->e_ident[1] != 'E')
+static uint32_t reload_elf_file (uint8_t * file_buffer) {
+    // 读取的只是ELF文件，不像BIN那样可直接运行，需要从中加载出有效数据和代码
+    // 简单判断是否是合法的ELF文件
+    Elf32_Ehdr * elf_hdr = (Elf32_Ehdr *)file_buffer;
+    if ((elf_hdr->e_ident[0] != ELF_MAGIC) || (elf_hdr->e_ident[1] != 'E')
         || (elf_hdr->e_ident[2] != 'L') || (elf_hdr->e_ident[3] != 'F')) {
         return 0;
     }
-     for (int i = 0; i < elf_hdr->e_phnum; i++) {
+
+    // 然后从中加载程序头，将内容拷贝到相应的位置
+    for (int i = 0; i < elf_hdr->e_phnum; i++) {
         Elf32_Phdr * phdr = (Elf32_Phdr *)(file_buffer + elf_hdr->e_phoff) + i;
         if (phdr->p_type != PT_LOAD) {
             continue;
@@ -33,7 +36,6 @@ static uint32_t reload_elf_file(uint8_t * file_buffer)
 
     return elf_hdr->e_entry;
 }
-
 static void die (int code) {
     for (;;) {
     }

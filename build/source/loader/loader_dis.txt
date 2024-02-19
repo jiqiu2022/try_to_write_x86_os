@@ -553,19 +553,21 @@ void loader_entry(void) {
     8391:	c3                   	ret    
 
 00008392 <reload_elf_file>:
+#include "loader.h"
 
 
 
 
-static uint32_t reload_elf_file(uint8_t * file_buffer)
-{
+static uint32_t reload_elf_file (uint8_t * file_buffer) {
     8392:	55                   	push   %bp
     8393:	89 e5                	mov    %sp,%bp
     8395:	83 ec 20             	sub    $0x20,%sp
-    Elf32_Ehdr *elf_hdr =(Elf32_Ehdr *)file_buffer;
+    // 读取的只是ELF文件，不像BIN那样可直接运行，需要从中加载出有效数据和代码
+    // 简单判断是否是合法的ELF文件
+    Elf32_Ehdr * elf_hdr = (Elf32_Ehdr *)file_buffer;
     8398:	8b 45 08             	mov    0x8(%di),%ax
     839b:	89 45 e8             	mov    %ax,-0x18(%di)
-     if ((elf_hdr->e_ident[0] != ELF_MAGIC) || (elf_hdr->e_ident[1] != 'E')
+    if ((elf_hdr->e_ident[0] != ELF_MAGIC) || (elf_hdr->e_ident[1] != 'E')
     839e:	8b 45 e8             	mov    -0x18(%di),%ax
     83a1:	0f b6 00             	movzbw (%bx,%si),%ax
     83a4:	3c 7f                	cmp    $0x7f,%al
@@ -589,7 +591,9 @@ static uint32_t reload_elf_file(uint8_t * file_buffer)
     83ce:	e9 d7 00             	jmp    84a8 <reload_elf_file+0x116>
     83d1:	00 00                	add    %al,(%bx,%si)
     }
-     for (int i = 0; i < elf_hdr->e_phnum; i++) {
+
+    // 然后从中加载程序头，将内容拷贝到相应的位置
+    for (int i = 0; i < elf_hdr->e_phnum; i++) {
     83d3:	c7 45 fc 00 00       	movw   $0x0,-0x4(%di)
     83d8:	00 00                	add    %al,(%bx,%si)
     83da:	e9 b2 00             	jmp    848f <reload_elf_file+0xfd>
@@ -675,7 +679,7 @@ static uint32_t reload_elf_file(uint8_t * file_buffer)
     848a:	eb 01                	jmp    848d <reload_elf_file+0xfb>
             continue;
     848c:	90                   	nop
-     for (int i = 0; i < elf_hdr->e_phnum; i++) {
+    for (int i = 0; i < elf_hdr->e_phnum; i++) {
     848d:	83 45 fc 01          	addw   $0x1,-0x4(%di)
     8491:	8b 45 e8             	mov    -0x18(%di),%ax
     8494:	0f b7 40 2c          	movzww 0x2c(%bx,%si),%ax
@@ -694,7 +698,6 @@ static uint32_t reload_elf_file(uint8_t * file_buffer)
     84ab:	c3                   	ret    
 
 000084ac <die>:
-
 static void die (int code) {
     84ac:	55                   	push   %bp
     84ad:	89 e5                	mov    %sp,%bp
