@@ -15,15 +15,15 @@ The C compiler identification is GNU, found in "C:/Users/jiqiu2021/Desktop/coded
 Determining if the C compiler works passed with the following output:
 Change Dir: C:/Users/jiqiu2021/Desktop/coded/start/start/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_fad03/fast && C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_fad03.dir/build.make CMakeFiles/cmTC_fad03.dir/build
+Run Build Command(s):C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_75166/fast && C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_75166.dir/build.make CMakeFiles/cmTC_75166.dir/build
 make[1]: Entering directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_fad03.dir/testCCompiler.c.obj
-C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  -o CMakeFiles/cmTC_fad03.dir/testCCompiler.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_fad03.exe
-"C:/Program Files (x86)/CMake/bin/cmake.exe" -E rm -f CMakeFiles/cmTC_fad03.dir/objects.a
-C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_fad03.dir/objects.a @CMakeFiles/cmTC_fad03.dir/objects1.rsp
-C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  -Wl,--whole-archive CMakeFiles/cmTC_fad03.dir/objects.a -Wl,--no-whole-archive -o cmTC_fad03.exe -Wl,--out-implib,libcmTC_fad03.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTC_fad03.dir/linklibs.rsp
-x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_fad03.dir/objects.a: linker input file unused because linking not done
+Building C object CMakeFiles/cmTC_75166.dir/testCCompiler.c.obj
+C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  -o CMakeFiles/cmTC_75166.dir/testCCompiler.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_75166.exe
+"C:/Program Files (x86)/CMake/bin/cmake.exe" -E rm -f CMakeFiles/cmTC_75166.dir/objects.a
+C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_75166.dir/objects.a @CMakeFiles/cmTC_75166.dir/objects1.rsp
+C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  -Wl,--whole-archive CMakeFiles/cmTC_75166.dir/objects.a -Wl,--no-whole-archive -o cmTC_75166.exe -Wl,--out-implib,libcmTC_75166.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTC_75166.dir/linklibs.rsp
+x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_75166.dir/objects.a: linker input file unused because linking not done
 make[1]: Leaving directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/build/CMakeFiles/CMakeTmp'
 
 
