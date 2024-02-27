@@ -4,7 +4,24 @@
 #include "os_cfg.h"
 #define IDT_TABLE_NR			128				// IDT表项数量
 static gate_desc_t idt_table[IDT_TABLE_NR];	// 中断描述表
-
+static void dump_core_regs (exception_frame_t * frame) {
+    // 打印CPU寄存器相关内容
+    log_printf("IRQ: %d, error code: %d.", frame->num, frame->error_code);
+    log_printf("CS: %d\nDS: %d\nES: %d\nSS: %d\nFS:%d\nGS:%d",
+               frame->cs, frame->ds, frame->es, frame->ds, frame->fs, frame->gs
+    );
+    log_printf("EAX:0x%x\n"
+                "EBX:0x%x\n"
+                "ECX:0x%x\n"
+                "EDX:0x%x\n"
+                "EDI:0x%x\n"
+                "ESI:0x%x\n"
+                "EBP:0x%x\n"
+                "ESP:0x%x\n",
+               frame->eax, frame->ebx, frame->ecx, frame->edx,
+               frame->edi, frame->esi, frame->ebp, frame->esp);
+    log_printf("EIP:0x%x\nEFLAGS:0x%x\n", frame->eip, frame->eflags);
+	}
 static void init_pic(void){
 	 // 边缘触发，级联，需要配置icw4, 8086模式
     outb(PIC0_ICW1, PIC_ICW1_ALWAYS_1 | PIC_ICW1_ICW4);
@@ -77,7 +94,14 @@ void irq_init(void) {
 	init_pic();
 }
 static void do_default_handler (exception_frame_t* frame, char * message) {
-    for (;;) {hlt();}
+    log_printf("--------------------------------");
+    log_printf("IRQ/Exception happend: %s.", message);
+    dump_core_regs(frame);
+    
+    // todo: 留等以后补充打印任务栈的内容
+
+    log_printf("--------------------------------");
+	for (;;) {hlt();}
 }
 
 void do_handler_unknown (exception_frame_t * frame) {

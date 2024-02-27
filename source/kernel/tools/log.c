@@ -2,6 +2,7 @@
 #include "os_cfg.h"
 #define COM1_PORT           0x3F8 
 #include "comm/cpu_instr.h"
+#include "tools/klib.h"
 void log_init(void){
     outb(COM1_PORT + 1, 0x00);    // Disable all interrupts
     outb(COM1_PORT + 3, 0x80);    // Enable DLAB (set baud rate divisor)
@@ -16,7 +17,17 @@ void log_init(void){
 }
 
 void log_printf(const char * fmt,...){
-    const char * p = fmt;
+    
+   char str_buf[128];
+    va_list args;
+
+    kernel_memset(str_buf, '\0', sizeof(str_buf));
+
+    va_start(args, fmt);
+    kernel_vsprintf(str_buf, fmt, args);
+    va_end(args);
+
+    const char * p = str_buf;    
     while (*p != '\0') {
         while ((inb(COM1_PORT + 5) & (1 << 6)) == 0);
         outb(COM1_PORT, *p++);
