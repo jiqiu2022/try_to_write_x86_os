@@ -77,4 +77,9 @@ static inline void lidt(uint32_t start, uint32_t size) {
 static inline void hlt(void) {
     __asm__ __volatile__("hlt");
 }
+
+static inline void write_tr(uint32_t tss_sel){
+	__asm__ __volatile__ ("ltr %%ax"::"a"(tss_sel));
+	
+}
 #endif

@@ -2,6 +2,22 @@
 #include "os_cfg.h"
 #include "comm/cpu_instr.h"
 static segment_desc_t gdt_table[GDT_TABLE_SIZE];
+int gdt_alloc_desc(void){
+    for (int i = 1; i < GDT_TABLE_SIZE; i++)
+    {
+        segment_desc_t *desc =gdt_table+i;
+        if (desc->attr==0)
+        {
+            return i *sizeof(segment_desc_t);
+        }
+        
+    }
+    return -1;
+    
+}
+void switch_to_tss (uint32_t tss_selector) {
+    far_jump(tss_selector, 0);
+}
 void segment_desc_set(int selector,uint32_t base,uint32_t limit,uint16_t attr){
     segment_desc_t * desc =gdt_table+selector/sizeof(segment_desc_t);
     
@@ -44,3 +60,4 @@ void init_gdt(void){
 void cpu_init(){
     init_gdt();
 }
+

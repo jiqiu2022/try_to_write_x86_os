@@ -5,6 +5,8 @@
 #include "tools/log.h"
 #include "os_cfg.h"
 #include "tools/klib.h"
+#include "core/task.h"
+#include "comm/cpu_instr.h"
 /**
  * 内核入口
  */
@@ -16,6 +18,20 @@ void kernel_init (boot_info_t * boot_info) {
     time_init();
     init_boot_info =boot_info;
 }
+static task_t first_task;
+static uint32_t init_task_stack[1024];
+static task_t init_task;
+
+void init_task_entry(void) {
+    int count = 0;
+
+    for (;;) {
+        log_printf("init task: %d", count++);
+        task_switch_from_to(&init_task, &first_task);
+
+    }
+}
+
 void init_main(void) {
     log_printf("Kernel is running....");
     log_printf("Version: %s, name: %s", OS_VERSION, "tiny x86 os");
@@ -23,6 +39,14 @@ void init_main(void) {
     //  int a = 3 / 0;
     int a = 3;
     ASSERT(a > 2);
-    ASSERT(a < 2);
-    for (;;) {}
+    // ASSERT(a < 2);
+    task_init(&init_task,(uint32_t)init_task_entry,(uint32_t)&init_task_stack[1024]);
+    task_init(&first_task, 0, 0);
+    write_tr(first_task.tss_sel);
+    int count = 0;
+    for (;;) {
+        log_printf("first task: %d", count++);
+        task_switch_from_to(&first_task, &init_task);
+    }
+    for (;;){}
 }
