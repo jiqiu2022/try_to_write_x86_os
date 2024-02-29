@@ -4,6 +4,7 @@
 #include "comm/types.h"
 #include "tools/list.h"
 #define TASK_NAME_SIZE				32			// 任务名字长度
+#define TASK_TIME_SLICE_DEFAULT		10			// 时间片计数
 
 typedef struct _task_t{
     enum {
@@ -13,7 +14,9 @@ typedef struct _task_t{
 		TASK_READY,
 		TASK_WAITING,
 	}state;
-     char name[TASK_NAME_SIZE];		// 任务名字
+    char name[TASK_NAME_SIZE];		// 任务名字
+    int time_slice;			// 时间片
+	int slice_ticks;		// 递减时间片计数
     tss_t tss;
     uint16_t tss_sel;		// tss选择子
     list_node_t run_node;		// 运行相关结点
@@ -40,4 +43,6 @@ void task_manager_init (void);
 void task_first_init (void);
 task_t * task_first_task (void);
 void task_set_ready(task_t *task);
+int sys_yield(void);
+void task_time_tick (void);
 #endif
