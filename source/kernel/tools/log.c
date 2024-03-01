@@ -3,6 +3,7 @@
 #define COM1_PORT           0x3F8 
 #include "comm/cpu_instr.h"
 #include "tools/klib.h"
+#include "cpu/irq.h"
 void log_init(void){
     outb(COM1_PORT + 1, 0x00);    // Disable all interrupts
     outb(COM1_PORT + 3, 0x80);    // Enable DLAB (set baud rate divisor)
@@ -26,6 +27,7 @@ void log_printf(const char * fmt,...){
     va_start(args, fmt);
     kernel_vsprintf(str_buf, fmt, args);
     va_end(args);
+    irq_state_t state = irq_enter_protection();
 
     const char * p = str_buf;    
     while (*p != '\0') {
@@ -35,4 +37,6 @@ void log_printf(const char * fmt,...){
 
     outb(COM1_PORT, '\r');
     outb(COM1_PORT, '\n');
+    irq_leave_protection(state);
+
 }

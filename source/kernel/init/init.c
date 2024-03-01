@@ -87,7 +87,7 @@ void init_task_entry(void) {
 
     for (;;) {
         log_printf("init task: %d", count++);
-        // sys_yield();
+        sys_msleep(500);
     }
 }
 
@@ -107,6 +107,7 @@ void init_main(void) {
     int count = 0;
     for (;;) {
         log_printf("first task: %d", count++);
+        sys_msleep(1000);
         // sys_yield();
     }
     for (;;){}

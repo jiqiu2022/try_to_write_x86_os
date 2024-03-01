@@ -44,7 +44,7 @@ void exception_handler_alignment_check (void);
 void exception_handler_machine_check (void);
 void exception_handler_smd_exception (void);
 void exception_handler_virtual_exception (void);
-
+#include "comm/types.h"
 typedef struct _exception_frame_t {
     // 结合压栈的过程，以及pusha指令的实际压入过程
     int gs, fs, es, ds;
@@ -81,7 +81,9 @@ void irq_enable(int irq_num);
 void irq_disable(int irq_num);
 void irq_disable_global(void);
 void irq_enable_global(void);
+typedef uint32_t irq_state_t;
 
 void pic_send_eoi(int irq);
-
+irq_state_t irq_enter_protection (void);
+void irq_leave_protection (irq_state_t state);
 #endif
