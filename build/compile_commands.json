@@ -2,71 +2,85 @@
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/boot",
   "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/boot.dir/includes_ASM.rsp -m32 -g -g -o CMakeFiles/boot.dir/start.S.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/boot/start.S",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/boot/start.S"
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/boot/start.S",
+  "output": "source/boot/CMakeFiles/boot.dir/start.S.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/boot",
-  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/boot.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/boot.dir/boot.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/boot/boot.c",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/boot/boot.c"
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/boot.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -fdiagnostics-color=always -o CMakeFiles/boot.dir/boot.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/boot/boot.c",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/boot/boot.c",
+  "output": "source/boot/CMakeFiles/boot.dir/boot.c.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/loader",
   "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/loader.dir/includes_ASM.rsp -m32 -g -g -o CMakeFiles/loader.dir/start.S.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/loader/start.S",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/loader/start.S"
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/loader/start.S",
+  "output": "source/loader/CMakeFiles/loader.dir/start.S.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/loader",
-  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/loader.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/loader.dir/loader_16.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/loader/loader_16.c",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/loader/loader_16.c"
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/loader.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -fdiagnostics-color=always -o CMakeFiles/loader.dir/loader_16.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/loader/loader_16.c",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/loader/loader_16.c",
+  "output": "source/loader/CMakeFiles/loader.dir/loader_16.c.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/loader",
-  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/loader.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/loader.dir/loader_32.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/loader/loader_32.c",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/loader/loader_32.c"
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/loader.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -fdiagnostics-color=always -o CMakeFiles/loader.dir/loader_32.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/loader/loader_32.c",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/loader/loader_32.c",
+  "output": "source/loader/CMakeFiles/loader.dir/loader_32.c.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/kernel",
   "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_ASM.rsp -m32 -g -g -o CMakeFiles/kernel.dir/init/start.S.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/init/start.S",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/init/start.S"
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/init/start.S",
+  "output": "source/kernel/CMakeFiles/kernel.dir/init/start.S.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/kernel",
-  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/core/task.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/core/task.c",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/core/task.c"
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -fdiagnostics-color=always -o CMakeFiles/kernel.dir/core/task.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/core/task.c",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/core/task.c",
+  "output": "source/kernel/CMakeFiles/kernel.dir/core/task.c.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/kernel",
-  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/cpu/cpu.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/cpu/cpu.c",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/cpu/cpu.c"
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -fdiagnostics-color=always -o CMakeFiles/kernel.dir/cpu/cpu.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/cpu/cpu.c",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/cpu/cpu.c",
+  "output": "source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/kernel",
-  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/cpu/irq.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/cpu/irq.c",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/cpu/irq.c"
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -fdiagnostics-color=always -o CMakeFiles/kernel.dir/cpu/irq.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/cpu/irq.c",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/cpu/irq.c",
+  "output": "source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/kernel",
-  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/dev/time.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/dev/time.c",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/dev/time.c"
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -fdiagnostics-color=always -o CMakeFiles/kernel.dir/dev/time.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/dev/time.c",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/dev/time.c",
+  "output": "source/kernel/CMakeFiles/kernel.dir/dev/time.c.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/kernel",
-  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/init/init.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/init/init.c",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/init/init.c"
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -fdiagnostics-color=always -o CMakeFiles/kernel.dir/init/init.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/init/init.c",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/init/init.c",
+  "output": "source/kernel/CMakeFiles/kernel.dir/init/init.c.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/kernel",
-  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/tools/klib.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/tools/klib.c",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/tools/klib.c"
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -fdiagnostics-color=always -o CMakeFiles/kernel.dir/tools/klib.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/tools/klib.c",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/tools/klib.c",
+  "output": "source/kernel/CMakeFiles/kernel.dir/tools/klib.c.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/kernel",
-  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/tools/list.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/tools/list.c",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/tools/list.c"
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -fdiagnostics-color=always -o CMakeFiles/kernel.dir/tools/list.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/tools/list.c",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/tools/list.c",
+  "output": "source/kernel/CMakeFiles/kernel.dir/tools/list.c.obj"
 },
 {
   "directory": "C:/Users/jiqiu2021/Desktop/coded/start/start/build/source/kernel",
-  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/tools/log.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/tools/log.c",
-  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/tools/log.c"
+  "command": "C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  @CMakeFiles/kernel.dir/includes_C.rsp -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -fdiagnostics-color=always -o CMakeFiles/kernel.dir/tools/log.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/tools/log.c",
+  "file": "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/tools/log.c",
+  "output": "source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj"
 }
 ]
