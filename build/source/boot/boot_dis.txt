@@ -74,6 +74,7 @@ _start:
 	mov %ax, %gs
     7c0b:	8e e8                	mov    %ax,%gs
 
+
 	// 根据https://wiki.osdev.org/Memory_Map_(x86)
 	// 使用0x7c00之前的空间作栈，大约有30KB的RAM，足够boot和loader使用
 	mov $_start, %esp
@@ -88,6 +89,7 @@ _start:
     7c17:	cd 10                	int    $0x10
 
 00007c19 <read_loader>:
+
 
 	// 加载loader，只支持磁盘1
 	// https://wiki.osdev.org/Disk_access_using_the_BIOS_(INT_13h)
@@ -116,11 +118,11 @@ read_loader:
     7c2d:	eb fe                	jmp    7c2d <read_loader+0x14>
 
 00007c2f <boot_entry>:
+__asm__(".code16gcc");
 
-/**
- * Boot的C入口函数
- * 只完成一项功能，即从磁盘找到loader文件然后加载到内容中，并跳转过去
- */
+#include "boot.h"
+#define LOADER_START_ADDR 0x8000
+
 void boot_entry(void) {
     7c2f:	66 55                	push   %ebp
     7c31:	66 89 e5             	mov    %esp,%ebp

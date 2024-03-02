@@ -24,6 +24,7 @@ _start:
 	mov %ax, %fs
 	mov %ax, %gs
 
+
 	// 根据https://wiki.osdev.org/Memory_Map_(x86)
 	// 使用0x7c00之前的空间作栈，大约有30KB的RAM，足够boot和loader使用
 	mov $_start, %esp
@@ -32,6 +33,7 @@ _start:
 	mov $0xe, %ah
 	mov $'L', %al
 	int $0x10
+
 
 	// 加载loader，只支持磁盘1
 	// https://wiki.osdev.org/Disk_access_using_the_BIOS_(INT_13h)

@@ -178,17 +178,18 @@ void task_time_tick (void) {
         }
         curr = next;
     }
-    
     task_dispatch();
     irq_leave_protection(state);
 }
-void task_set_sleep(task_t *task,uint32_t ticks){
-    ASSERT(ticks>0);
-    task->sleep_ticks=ticks;
-    task->state=TASK_SLEEP;
-    list_insert_last(&task_manager.sleep_list,&task->run_node);
 
+void task_set_sleep(task_t *task, uint32_t ticks) {
+    if (ticks <= 0) {
+        return;
+    }
 
+    task->sleep_ticks = ticks;
+    task->state = TASK_SLEEP;
+    list_insert_last(&task_manager.sleep_list, &task->run_node);
 }
 void sys_msleep(uint32_t ms){
     if(ms<OS_TICK_MS){
@@ -203,3 +204,4 @@ void sys_msleep(uint32_t ms){
     irq_leave_protection(state);
 
 }
+

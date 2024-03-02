@@ -1,8 +1,12 @@
 #include "cpu/cpu.h"
 #include "os_cfg.h"
 #include "comm/cpu_instr.h"
+#include "ipc/mutex.h"
 static segment_desc_t gdt_table[GDT_TABLE_SIZE];
+static mutex_t mutex;
+
 int gdt_alloc_desc(void){
+    mutex_lock(&mutex);
     for (int i = 1; i < GDT_TABLE_SIZE; i++)
     {
         segment_desc_t *desc =gdt_table+i;
@@ -12,6 +16,7 @@ int gdt_alloc_desc(void){
         }
         
     }
+    mutex_unlock(&mutex);
     return -1;
     
 }
@@ -58,6 +63,7 @@ void init_gdt(void){
 } 
 
 void cpu_init(){
+    mutex_init(&mutex);
     init_gdt();
 }
 

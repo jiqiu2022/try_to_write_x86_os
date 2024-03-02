@@ -1,0 +1,812 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake:211 (message)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: cannot find crt0.o: No such file or directory
+      c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: cannot find -lc
+      collect2.exe: error: ld returned 1 exit status
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe 
+      Build flags: 
+      Id flags: -c 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+      
+      The C compiler identification is GNU, found in:
+        C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/3.27.8/CompilerIdC/CMakeCCompilerId.o
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-l1bmr3"
+      binary: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-l1bmr3"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-l1bmr3'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_a359d/fast
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_a359d.dir/build.make CMakeFiles/cmTC_a359d.dir/build
+        make[1]: Entering directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-l1bmr3'
+        Building C object CMakeFiles/cmTC_a359d.dir/CMakeCCompilerABI.c.obj
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_a359d.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c"
+        Using built-in specs.
+        COLLECT_GCC=C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
+        Target: x86_64-elf
+        Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
+        Thread model: single
+        gcc version 7.1.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_a359d.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/cc1.exe -quiet -v -iprefix c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/ C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_a359d.dir/CMakeCCompilerABI.c.obj -version -fdiagnostics-color=always -o C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccN5bBma.s
+        GNU C11 (GCC) version 7.1.0 (x86_64-elf)
+        	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/sys-include"
+        ignoring nonexistent directory "c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/include"
+        ignoring duplicate directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/include"
+        ignoring duplicate directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/include-fixed"
+        ignoring nonexistent directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/sys-include"
+        ignoring nonexistent directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/include
+         c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/include-fixed
+        End of search list.
+        GNU C11 (GCC) version 7.1.0 (x86_64-elf)
+        	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: b00064cd55ffce4efe95d0fcd6948296
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_a359d.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/as.exe -o CMakeFiles/cmTC_a359d.dir/CMakeCCompilerABI.c.obj C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccN5bBma.s
+        COMPILER_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
+        LIBRARY_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_a359d.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_a359d.exe
+        "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E rm -f CMakeFiles/cmTC_a359d.dir/objects.a
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_a359d.dir/objects.a @CMakeFiles/cmTC_a359d.dir/objects1.rsp
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -v -Wl,--whole-archive CMakeFiles/cmTC_a359d.dir/objects.a -Wl,--no-whole-archive -o cmTC_a359d.exe -Wl,--out-implib,libcmTC_a359d.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+        Using built-in specs.
+        COLLECT_GCC=C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
+        COLLECT_LTO_WRAPPER=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/lto-wrapper.exe
+        Target: x86_64-elf
+        Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
+        Thread model: single
+        gcc version 7.1.0 (GCC) 
+        COMPILER_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
+        LIBRARY_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a359d.exe' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/collect2.exe -plugin c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/liblto_plugin-0.dll -plugin-opt=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccokjIPg.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -o cmTC_a359d.exe crt0.o c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/crtbegin.o -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0 -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib --whole-archive CMakeFiles/cmTC_a359d.dir/objects.a --no-whole-archive --out-implib libcmTC_a359d.dll.a --major-image-version 0 --minor-image-version 0 -lgcc -lc -lgcc c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/crtend.o
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: unrecognized option '--major-image-version'
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: use the --help option for usage information
+        collect2.exe: error: ld returned 1 exit status
+        make[1]: *** [CMakeFiles/cmTC_a359d.dir/build.make:101: cmTC_a359d.exe] Error 1
+        make[1]: Leaving directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-l1bmr3'
+        make: *** [Makefile:127: cmTC_a359d/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Check for working C compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe"
+    directories:
+      source: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-jd4g3v"
+      binary: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-jd4g3v"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-jd4g3v'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_2e5b2/fast
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_2e5b2.dir/build.make CMakeFiles/cmTC_2e5b2.dir/build
+        make[1]: Entering directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-jd4g3v'
+        Building C object CMakeFiles/cmTC_2e5b2.dir/testCCompiler.c.obj
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -fdiagnostics-color=always -o CMakeFiles/cmTC_2e5b2.dir/testCCompiler.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-jd4g3v/testCCompiler.c
+        Linking C executable cmTC_2e5b2.exe
+        "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E rm -f CMakeFiles/cmTC_2e5b2.dir/objects.a
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_2e5b2.dir/objects.a @CMakeFiles/cmTC_2e5b2.dir/objects1.rsp
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -Wl,--whole-archive CMakeFiles/cmTC_2e5b2.dir/objects.a -Wl,--no-whole-archive -o cmTC_2e5b2.exe -Wl,--out-implib,libcmTC_2e5b2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTC_2e5b2.dir/linkLibs.rsp
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: unrecognized option '--major-image-version'
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: use the --help option for usage information
+        collect2.exe: error: ld returned 1 exit status
+        make[1]: *** [CMakeFiles/cmTC_2e5b2.dir/build.make:102: cmTC_2e5b2.exe] Error 1
+        make[1]: Leaving directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-jd4g3v'
+        make: *** [Makefile:127: cmTC_2e5b2/fast] Error 2
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: cannot find crt0.o: No such file or directory
+      c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: cannot find -lc
+      collect2.exe: error: ld returned 1 exit status
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe 
+      Build flags: 
+      Id flags: -c 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+      
+      The C compiler identification is GNU, found in:
+        C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/3.27.8/CompilerIdC/CMakeCCompilerId.o
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-04fqk1"
+      binary: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-04fqk1"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-04fqk1'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_45c0a/fast
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_45c0a.dir/build.make CMakeFiles/cmTC_45c0a.dir/build
+        make[1]: Entering directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-04fqk1'
+        Building C object CMakeFiles/cmTC_45c0a.dir/CMakeCCompilerABI.c.obj
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_45c0a.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c"
+        Using built-in specs.
+        COLLECT_GCC=C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
+        Target: x86_64-elf
+        Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
+        Thread model: single
+        gcc version 7.1.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_45c0a.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/cc1.exe -quiet -v -iprefix c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/ C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_45c0a.dir/CMakeCCompilerABI.c.obj -version -fdiagnostics-color=always -o C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccI8LJiv.s
+        GNU C11 (GCC) version 7.1.0 (x86_64-elf)
+        	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/sys-include"
+        ignoring nonexistent directory "c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/include"
+        ignoring duplicate directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/include"
+        ignoring duplicate directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/include-fixed"
+        ignoring nonexistent directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/sys-include"
+        ignoring nonexistent directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/include
+         c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/include-fixed
+        End of search list.
+        GNU C11 (GCC) version 7.1.0 (x86_64-elf)
+        	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: b00064cd55ffce4efe95d0fcd6948296
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_45c0a.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/as.exe -o CMakeFiles/cmTC_45c0a.dir/CMakeCCompilerABI.c.obj C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccI8LJiv.s
+        COMPILER_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
+        LIBRARY_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_45c0a.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_45c0a.exe
+        "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E rm -f CMakeFiles/cmTC_45c0a.dir/objects.a
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_45c0a.dir/objects.a @CMakeFiles/cmTC_45c0a.dir/objects1.rsp
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -v -Wl,--whole-archive CMakeFiles/cmTC_45c0a.dir/objects.a -Wl,--no-whole-archive -o cmTC_45c0a.exe -Wl,--out-implib,libcmTC_45c0a.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+        Using built-in specs.
+        COLLECT_GCC=C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
+        COLLECT_LTO_WRAPPER=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/lto-wrapper.exe
+        Target: x86_64-elf
+        Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
+        Thread model: single
+        gcc version 7.1.0 (GCC) 
+        COMPILER_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
+        LIBRARY_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_45c0a.exe' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/collect2.exe -plugin c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/liblto_plugin-0.dll -plugin-opt=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccS5VxLL.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -o cmTC_45c0a.exe crt0.o c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/crtbegin.o -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0 -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib --whole-archive CMakeFiles/cmTC_45c0a.dir/objects.a --no-whole-archive --out-implib libcmTC_45c0a.dll.a --major-image-version 0 --minor-image-version 0 -lgcc -lc -lgcc c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/crtend.o
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: unrecognized option '--major-image-version'
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: use the --help option for usage information
+        collect2.exe: error: ld returned 1 exit status
+        make[1]: *** [CMakeFiles/cmTC_45c0a.dir/build.make:101: cmTC_45c0a.exe] Error 1
+        make[1]: Leaving directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-04fqk1'
+        make: *** [Makefile:127: cmTC_45c0a/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Check for working C compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe"
+    directories:
+      source: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-cf38ma"
+      binary: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-cf38ma"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-cf38ma'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_da561/fast
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_da561.dir/build.make CMakeFiles/cmTC_da561.dir/build
+        make[1]: Entering directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-cf38ma'
+        Building C object CMakeFiles/cmTC_da561.dir/testCCompiler.c.obj
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -fdiagnostics-color=always -o CMakeFiles/cmTC_da561.dir/testCCompiler.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-cf38ma/testCCompiler.c
+        Linking C executable cmTC_da561.exe
+        "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E rm -f CMakeFiles/cmTC_da561.dir/objects.a
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_da561.dir/objects.a @CMakeFiles/cmTC_da561.dir/objects1.rsp
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -Wl,--whole-archive CMakeFiles/cmTC_da561.dir/objects.a -Wl,--no-whole-archive -o cmTC_da561.exe -Wl,--out-implib,libcmTC_da561.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTC_da561.dir/linkLibs.rsp
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: unrecognized option '--major-image-version'
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: use the --help option for usage information
+        collect2.exe: error: ld returned 1 exit status
+        make[1]: *** [CMakeFiles/cmTC_da561.dir/build.make:102: cmTC_da561.exe] Error 1
+        make[1]: Leaving directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-cf38ma'
+        make: *** [Makefile:127: cmTC_da561/fast] Error 2
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: cannot find crt0.o: No such file or directory
+      c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: cannot find -lc
+      collect2.exe: error: ld returned 1 exit status
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe 
+      Build flags: 
+      Id flags: -c 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+      
+      The C compiler identification is GNU, found in:
+        C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/3.27.8/CompilerIdC/CMakeCCompilerId.o
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-2gf3py"
+      binary: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-2gf3py"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-2gf3py'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_dda55/fast
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_dda55.dir/build.make CMakeFiles/cmTC_dda55.dir/build
+        make[1]: Entering directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-2gf3py'
+        Building C object CMakeFiles/cmTC_dda55.dir/CMakeCCompilerABI.c.obj
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_dda55.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c"
+        Using built-in specs.
+        COLLECT_GCC=C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
+        Target: x86_64-elf
+        Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
+        Thread model: single
+        gcc version 7.1.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_dda55.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/cc1.exe -quiet -v -iprefix c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/ C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_dda55.dir/CMakeCCompilerABI.c.obj -version -fdiagnostics-color=always -o C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccC4lhDa.s
+        GNU C11 (GCC) version 7.1.0 (x86_64-elf)
+        	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/sys-include"
+        ignoring nonexistent directory "c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/include"
+        ignoring duplicate directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/include"
+        ignoring duplicate directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/include-fixed"
+        ignoring nonexistent directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/sys-include"
+        ignoring nonexistent directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/include
+         c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/include-fixed
+        End of search list.
+        GNU C11 (GCC) version 7.1.0 (x86_64-elf)
+        	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: b00064cd55ffce4efe95d0fcd6948296
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_dda55.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/as.exe -o CMakeFiles/cmTC_dda55.dir/CMakeCCompilerABI.c.obj C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccC4lhDa.s
+        COMPILER_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
+        LIBRARY_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_dda55.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_dda55.exe
+        "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E rm -f CMakeFiles/cmTC_dda55.dir/objects.a
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_dda55.dir/objects.a @CMakeFiles/cmTC_dda55.dir/objects1.rsp
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -v -Wl,--whole-archive CMakeFiles/cmTC_dda55.dir/objects.a -Wl,--no-whole-archive -o cmTC_dda55.exe -Wl,--out-implib,libcmTC_dda55.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+        Using built-in specs.
+        COLLECT_GCC=C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
+        COLLECT_LTO_WRAPPER=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/lto-wrapper.exe
+        Target: x86_64-elf
+        Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
+        Thread model: single
+        gcc version 7.1.0 (GCC) 
+        COMPILER_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
+        LIBRARY_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_dda55.exe' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/collect2.exe -plugin c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/liblto_plugin-0.dll -plugin-opt=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccRhRqig.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -o cmTC_dda55.exe crt0.o c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/crtbegin.o -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0 -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib --whole-archive CMakeFiles/cmTC_dda55.dir/objects.a --no-whole-archive --out-implib libcmTC_dda55.dll.a --major-image-version 0 --minor-image-version 0 -lgcc -lc -lgcc c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/crtend.o
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: unrecognized option '--major-image-version'
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: use the --help option for usage information
+        collect2.exe: error: ld returned 1 exit status
+        make[1]: *** [CMakeFiles/cmTC_dda55.dir/build.make:101: cmTC_dda55.exe] Error 1
+        make[1]: Leaving directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-2gf3py'
+        make: *** [Makefile:127: cmTC_dda55/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Check for working C compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe"
+    directories:
+      source: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-9hao8p"
+      binary: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-9hao8p"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-9hao8p'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_ba9d6/fast
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_ba9d6.dir/build.make CMakeFiles/cmTC_ba9d6.dir/build
+        make[1]: Entering directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-9hao8p'
+        Building C object CMakeFiles/cmTC_ba9d6.dir/testCCompiler.c.obj
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -fdiagnostics-color=always -o CMakeFiles/cmTC_ba9d6.dir/testCCompiler.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-9hao8p/testCCompiler.c
+        Linking C executable cmTC_ba9d6.exe
+        "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E rm -f CMakeFiles/cmTC_ba9d6.dir/objects.a
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_ba9d6.dir/objects.a @CMakeFiles/cmTC_ba9d6.dir/objects1.rsp
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -Wl,--whole-archive CMakeFiles/cmTC_ba9d6.dir/objects.a -Wl,--no-whole-archive -o cmTC_ba9d6.exe -Wl,--out-implib,libcmTC_ba9d6.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTC_ba9d6.dir/linkLibs.rsp
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: unrecognized option '--major-image-version'
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: use the --help option for usage information
+        collect2.exe: error: ld returned 1 exit status
+        make[1]: *** [CMakeFiles/cmTC_ba9d6.dir/build.make:102: cmTC_ba9d6.exe] Error 1
+        make[1]: Leaving directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-9hao8p'
+        make: *** [Makefile:127: cmTC_ba9d6/fast] Error 2
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: cannot find crt0.o: No such file or directory
+      c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: cannot find -lc
+      collect2.exe: error: ld returned 1 exit status
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe 
+      Build flags: 
+      Id flags: -c 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+      
+      The C compiler identification is GNU, found in:
+        C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/3.27.8/CompilerIdC/CMakeCCompilerId.o
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-bvag7q"
+      binary: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-bvag7q"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-bvag7q'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_dd073/fast
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_dd073.dir/build.make CMakeFiles/cmTC_dd073.dir/build
+        make[1]: Entering directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-bvag7q'
+        Building C object CMakeFiles/cmTC_dd073.dir/CMakeCCompilerABI.c.obj
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_dd073.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c"
+        Using built-in specs.
+        COLLECT_GCC=C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
+        Target: x86_64-elf
+        Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
+        Thread model: single
+        gcc version 7.1.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_dd073.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/cc1.exe -quiet -v -iprefix c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/ C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_dd073.dir/CMakeCCompilerABI.c.obj -version -fdiagnostics-color=always -o C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\cc9hk996.s
+        GNU C11 (GCC) version 7.1.0 (x86_64-elf)
+        	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/sys-include"
+        ignoring nonexistent directory "c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/include"
+        ignoring duplicate directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/include"
+        ignoring duplicate directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/include-fixed"
+        ignoring nonexistent directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/sys-include"
+        ignoring nonexistent directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/include
+         c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/include-fixed
+        End of search list.
+        GNU C11 (GCC) version 7.1.0 (x86_64-elf)
+        	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: b00064cd55ffce4efe95d0fcd6948296
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_dd073.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/as.exe -o CMakeFiles/cmTC_dd073.dir/CMakeCCompilerABI.c.obj C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\cc9hk996.s
+        COMPILER_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
+        LIBRARY_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_dd073.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_dd073.exe
+        "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E rm -f CMakeFiles/cmTC_dd073.dir/objects.a
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_dd073.dir/objects.a @CMakeFiles/cmTC_dd073.dir/objects1.rsp
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -v -Wl,--whole-archive CMakeFiles/cmTC_dd073.dir/objects.a -Wl,--no-whole-archive -o cmTC_dd073.exe -Wl,--out-implib,libcmTC_dd073.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+        Using built-in specs.
+        COLLECT_GCC=C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
+        COLLECT_LTO_WRAPPER=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/lto-wrapper.exe
+        Target: x86_64-elf
+        Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
+        Thread model: single
+        gcc version 7.1.0 (GCC) 
+        COMPILER_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
+        LIBRARY_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_dd073.exe' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/collect2.exe -plugin c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/liblto_plugin-0.dll -plugin-opt=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccCucfvf.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -o cmTC_dd073.exe crt0.o c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/crtbegin.o -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0 -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib --whole-archive CMakeFiles/cmTC_dd073.dir/objects.a --no-whole-archive --out-implib libcmTC_dd073.dll.a --major-image-version 0 --minor-image-version 0 -lgcc -lc -lgcc c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/crtend.o
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: unrecognized option '--major-image-version'
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: use the --help option for usage information
+        collect2.exe: error: ld returned 1 exit status
+        make[1]: *** [CMakeFiles/cmTC_dd073.dir/build.make:101: cmTC_dd073.exe] Error 1
+        make[1]: Leaving directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-bvag7q'
+        make: *** [Makefile:127: cmTC_dd073/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Check for working C compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe"
+    directories:
+      source: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-puh91t"
+      binary: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-puh91t"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-puh91t'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_f9bcf/fast
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_f9bcf.dir/build.make CMakeFiles/cmTC_f9bcf.dir/build
+        make[1]: Entering directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-puh91t'
+        Building C object CMakeFiles/cmTC_f9bcf.dir/testCCompiler.c.obj
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -fdiagnostics-color=always -o CMakeFiles/cmTC_f9bcf.dir/testCCompiler.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-puh91t/testCCompiler.c
+        Linking C executable cmTC_f9bcf.exe
+        "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E rm -f CMakeFiles/cmTC_f9bcf.dir/objects.a
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_f9bcf.dir/objects.a @CMakeFiles/cmTC_f9bcf.dir/objects1.rsp
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -Wl,--whole-archive CMakeFiles/cmTC_f9bcf.dir/objects.a -Wl,--no-whole-archive -o cmTC_f9bcf.exe -Wl,--out-implib,libcmTC_f9bcf.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTC_f9bcf.dir/linkLibs.rsp
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: unrecognized option '--major-image-version'
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: use the --help option for usage information
+        collect2.exe: error: ld returned 1 exit status
+        make[1]: *** [CMakeFiles/cmTC_f9bcf.dir/build.make:102: cmTC_f9bcf.exe] Error 1
+        make[1]: Leaving directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-puh91t'
+        make: *** [Makefile:127: cmTC_f9bcf/fast] Error 2
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: cannot find crt0.o: No such file or directory
+      c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: cannot find -lc
+      collect2.exe: error: ld returned 1 exit status
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe 
+      Build flags: 
+      Id flags: -c 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+      
+      The C compiler identification is GNU, found in:
+        C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/3.27.8/CompilerIdC/CMakeCCompilerId.o
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-p818u9"
+      binary: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-p818u9"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-p818u9'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_e4197/fast
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_e4197.dir/build.make CMakeFiles/cmTC_e4197.dir/build
+        make[1]: Entering directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-p818u9'
+        Building C object CMakeFiles/cmTC_e4197.dir/CMakeCCompilerABI.c.obj
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_e4197.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c"
+        Using built-in specs.
+        COLLECT_GCC=C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
+        Target: x86_64-elf
+        Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
+        Thread model: single
+        gcc version 7.1.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_e4197.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/cc1.exe -quiet -v -iprefix c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/ C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_e4197.dir/CMakeCCompilerABI.c.obj -version -fdiagnostics-color=always -o C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccm61ftg.s
+        GNU C11 (GCC) version 7.1.0 (x86_64-elf)
+        	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/sys-include"
+        ignoring nonexistent directory "c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/include"
+        ignoring duplicate directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/include"
+        ignoring duplicate directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/include-fixed"
+        ignoring nonexistent directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/sys-include"
+        ignoring nonexistent directory "c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/lib/gcc/../../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/include
+         c:\\users\\jiqiu2021\\documents\\x86_64-elf-tools-windows\\bin\\../lib/gcc/x86_64-elf/7.1.0/include-fixed
+        End of search list.
+        GNU C11 (GCC) version 7.1.0 (x86_64-elf)
+        	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: b00064cd55ffce4efe95d0fcd6948296
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_e4197.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/as.exe -o CMakeFiles/cmTC_e4197.dir/CMakeCCompilerABI.c.obj C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccm61ftg.s
+        COMPILER_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
+        LIBRARY_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_e4197.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_e4197.exe
+        "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E rm -f CMakeFiles/cmTC_e4197.dir/objects.a
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_e4197.dir/objects.a @CMakeFiles/cmTC_e4197.dir/objects1.rsp
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -v -Wl,--whole-archive CMakeFiles/cmTC_e4197.dir/objects.a -Wl,--no-whole-archive -o cmTC_e4197.exe -Wl,--out-implib,libcmTC_e4197.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+        Using built-in specs.
+        COLLECT_GCC=C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
+        COLLECT_LTO_WRAPPER=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/lto-wrapper.exe
+        Target: x86_64-elf
+        Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
+        Thread model: single
+        gcc version 7.1.0 (GCC) 
+        COMPILER_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
+        LIBRARY_PATH=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/;c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e4197.exe' '-mtune=generic' '-march=x86-64'
+         c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/collect2.exe -plugin c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/liblto_plugin-0.dll -plugin-opt=c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\JIQIU2~1\\AppData\\Local\\Temp\\ccoJxa1s.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -o cmTC_e4197.exe crt0.o c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/crtbegin.o -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0 -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc -Lc:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib --whole-archive CMakeFiles/cmTC_e4197.dir/objects.a --no-whole-archive --out-implib libcmTC_e4197.dll.a --major-image-version 0 --minor-image-version 0 -lgcc -lc -lgcc c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/crtend.o
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: unrecognized option '--major-image-version'
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: use the --help option for usage information
+        collect2.exe: error: ld returned 1 exit status
+        make[1]: *** [CMakeFiles/cmTC_e4197.dir/build.make:101: cmTC_e4197.exe] Error 1
+        make[1]: Leaving directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-p818u9'
+        make: *** [Makefile:127: cmTC_e4197/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt:1 (project)"
+    checks:
+      - "Check for working C compiler: C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe"
+    directories:
+      source: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-cmptev"
+      binary: "C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-cmptev"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-cmptev'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_5b529/fast
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_5b529.dir/build.make CMakeFiles/cmTC_5b529.dir/build
+        make[1]: Entering directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-cmptev'
+        Building C object CMakeFiles/cmTC_5b529.dir/testCCompiler.c.obj
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -fdiagnostics-color=always -o CMakeFiles/cmTC_5b529.dir/testCCompiler.c.obj -c C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-cmptev/testCCompiler.c
+        Linking C executable cmTC_5b529.exe
+        "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe" -E rm -f CMakeFiles/cmTC_5b529.dir/objects.a
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-ar.exe qc CMakeFiles/cmTC_5b529.dir/objects.a @CMakeFiles/cmTC_5b529.dir/objects1.rsp
+        C:/Users/jiqiu2021/Documents/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -Wl,--whole-archive CMakeFiles/cmTC_5b529.dir/objects.a -Wl,--no-whole-archive -o cmTC_5b529.exe -Wl,--out-implib,libcmTC_5b529.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTC_5b529.dir/linkLibs.rsp
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: unrecognized option '--major-image-version'
+        c:/users/jiqiu2021/documents/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/ld.exe: use the --help option for usage information
+        collect2.exe: error: ld returned 1 exit status
+        make[1]: *** [CMakeFiles/cmTC_5b529.dir/build.make:102: cmTC_5b529.exe] Error 1
+        make[1]: Leaving directory 'C:/Users/jiqiu2021/Desktop/coded/start/start/source/kernel/build/CMakeFiles/CMakeScratch/TryCompile-cmptev'
+        make: *** [Makefile:127: cmTC_5b529/fast] Error 2
+        
+      exitCode: 2
+...
