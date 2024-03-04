@@ -5,6 +5,7 @@
  	.global _start
 	.extern kernel_init
 _start:
+    push 4(%esp)
 	call kernel_init
 	jmp $KERNEL_SELECTOR_CS, $gdt_reload
 	jmp .

@@ -16,9 +16,9 @@
 static boot_info_t * init_boot_info; 
 void kernel_init (boot_info_t * boot_info) {
     cpu_init();
-
-    log_init();
     memory_init(boot_info);
+    log_init();
+
     irq_init();
     time_init();
     task_manager_init();
@@ -86,6 +86,9 @@ void list_test (void) {
         log_printf("error");
     }
  }
+
+
+
 void init_task_entry(void) {
     int count = 0;
 

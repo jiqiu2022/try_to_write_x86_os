@@ -5,6 +5,7 @@
 #include "cpu/cpu.h"
 #include "tools/log.h"
 #include "cpu/irq.h"
+#include "core/memory.h"
 static uint32_t idle_task_stack[IDLE_STACK_SIZE];	// 空闲任务堆栈
 
 static task_manager_t task_manager;
@@ -29,6 +30,12 @@ static int tss_init(task_t* task,uint32_t entry,uint32_t esp){
     task->tss.cs = KERNEL_SELECTOR_CS;    // 暂时写死
     task->tss.iomap = 0;
     task->tss_sel =tss_sel;
+    uint32_t page_dir = memory_create_uvm();
+    if (page_dir == 0) {
+        gdt_free_sel(tss_sel);
+        return -1;
+    }
+    task->tss.cr3 = page_dir;
     return 0;
 }
 

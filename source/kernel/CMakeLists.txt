@@ -11,6 +11,7 @@ file(GLOB_RECURSE C_LIST "*.c" "*.h")
 add_executable(${PROJECT_NAME} init/start.S ${C_LIST}
         tools/bitmap.c
         include/core/memory.h
+        include/cpu/mmu.h
 )
 
 # 不带调试信息的elf生成，何种更小，写入到image目录下

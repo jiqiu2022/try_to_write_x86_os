@@ -1,7 +1,7 @@
 
 #include "tools/klib.h"
 #include "comm/cpu_instr.h"
-
+#include "tools/log.h"
 void kernel_strcpy (char * dest, const char * src) {
     if (!dest || !src) {
         return;

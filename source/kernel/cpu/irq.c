@@ -2,6 +2,7 @@
 #include "cpu/cpu.h"
 #include "comm/cpu_instr.h"
 #include "os_cfg.h"
+#include "tools/log.h"
 #define IDT_TABLE_NR			128				// IDT表项数量
 static gate_desc_t idt_table[IDT_TABLE_NR];	// 中断描述表
 static void dump_core_regs (exception_frame_t * frame) {
