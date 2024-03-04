@@ -9,13 +9,16 @@
 #include "comm/cpu_instr.h"
 #include "tools/list.h"
 #include "ipc/sem.h"
+#include "core/memory.h"
 /**
  * 内核入口
  */
 static boot_info_t * init_boot_info; 
 void kernel_init (boot_info_t * boot_info) {
     cpu_init();
+
     log_init();
+    memory_init(boot_info);
     irq_init();
     time_init();
     task_manager_init();
