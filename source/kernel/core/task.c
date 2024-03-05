@@ -6,11 +6,21 @@
 #include "tools/log.h"
 #include "cpu/irq.h"
 #include "core/memory.h"
+#include "cpu/mmu.h"
 static uint32_t idle_task_stack[IDLE_STACK_SIZE];	// 空闲任务堆栈
 
 static task_manager_t task_manager;
 
-static int tss_init(task_t* task,uint32_t entry,uint32_t esp){
+int my_strcmp(const char *str1, const char *str2) {
+    while (*str1 && (*str1 == *str2)) {
+        str1++;
+        str2++;
+    }
+    return *(const unsigned char*)str1 - *(const unsigned char*)str2;
+}
+
+static int tss_init(task_t* task,uint32_t entry,uint32_t esp,const char * name){
+
     int tss_sel=gdt_alloc_desc();
     if (tss_sel<=0){
          log_printf("alloc tss failed.\n");
@@ -20,38 +30,75 @@ static int tss_init(task_t* task,uint32_t entry,uint32_t esp){
             SEG_P_PRESENT | SEG_DPL0 | SEG_TYPE_TSS);
     
     kernel_memset(&task->tss,0,sizeof(tss_t));
+
+    uint32_t kernel_stack = memory_alloc_page();
+    if (kernel_stack == 0) {
+        goto tss_init_failed;
+    }
+
+    const char* aim_name ="idletask";
+    int res =my_strcmp(name,aim_name);
+    int code_sel, data_sel;
+    if(!res){
+        code_sel = KERNEL_SELECTOR_CS;
+        data_sel = KERNEL_SELECTOR_DS;
+
+    } else{
+        code_sel = task_manager.app_code_sel | SEG_RPL3;
+        data_sel = task_manager.app_data_sel | SEG_RPL3;
+    }
+    // 注意加了RP3,不然将产生段保护错误
+
     task->tss.eip = entry;
-    task->tss.esp = task->tss.esp0 = esp;
+    task->tss.esp = esp ? esp : kernel_stack + MEM_PAGE_SIZE;
+    task->tss.esp0=kernel_stack + MEM_PAGE_SIZE;
     task->tss.ss0 = KERNEL_SELECTOR_DS;
     task->tss.eip = entry;
     task->tss.eflags = EFLAGS_DEFAULT | EFLAGS_IF;
     task->tss.es = task->tss.ss = task->tss.ds 
-            = task->tss.fs = task->tss.gs = KERNEL_SELECTOR_DS;   // 暂时写死
-    task->tss.cs = KERNEL_SELECTOR_CS;    // 暂时写死
+            = task->tss.fs = task->tss.gs = data_sel;   // 暂时写死
+    task->tss.cs = code_sel;    // 暂时写死
     task->tss.iomap = 0;
     task->tss_sel =tss_sel;
     uint32_t page_dir = memory_create_uvm();
     if (page_dir == 0) {
-        gdt_free_sel(tss_sel);
-        return -1;
+        goto tss_init_failed;
     }
     task->tss.cr3 = page_dir;
     return 0;
+tss_init_failed:
+    gdt_free_sel(tss_sel);
+
+    if (kernel_stack) {
+        memory_free_page(kernel_stack);
+    }
+    return -1;
 }
 
 void task_first_init (void) {
-    task_init(&task_manager.first_task, "first task", 0, 0);
+    void first_task_entry (void);
+    extern uint8_t s_first_task[], e_first_task[];
+    uint32_t copy_size = (uint32_t)(e_first_task - s_first_task);
+    uint32_t alloc_size = 10 * MEM_PAGE_SIZE;
+    ASSERT(copy_size < alloc_size);
 
+    uint32_t first_start =(uint32_t)first_task_entry;
+    task_init(&task_manager.first_task, "first task", first_start, first_start + alloc_size);
+    task_manager.curr_task = &task_manager.first_task;
+
+
+    mmu_set_page_dir(task_manager.first_task.tss.cr3);
+    memory_alloc_page_for(first_start,  alloc_size, PTE_P | PTE_W | PTE_U);
+    kernel_memcpy((void *)first_start, (void *)s_first_task, copy_size);
     // 写TR寄存器，指示当前运行的第一个任务
     write_tr(task_manager.first_task.tss_sel);
-    task_manager.curr_task = &task_manager.first_task;
 }
 //初始化任务
 int task_init (task_t *task,const char * name, uint32_t entry, uint32_t esp)
 {
     ASSERT(task !=(task_t *)0);
     
-    int err = tss_init(task, entry, esp);
+    int err = tss_init(task, entry, esp,name);
     if (err < 0) {
         log_printf("init task failed.\n");
         return err;
@@ -84,11 +131,22 @@ static void idle_task_entry (void) {
     }
 }
 void task_manager_init(void){
+    int sel = gdt_alloc_desc();
+    segment_desc_set(sel, 0x00000000, 0xFFFFFFFF,
+                     SEG_P_PRESENT | SEG_DPL3 | SEG_S_NORMAL |
+                     SEG_TYPE_DATA | SEG_TYPE_RW | SEG_D);
+    task_manager.app_data_sel = sel;
+
+    sel = gdt_alloc_desc();
+    segment_desc_set(sel, 0x00000000, 0xFFFFFFFF,
+                     SEG_P_PRESENT | SEG_DPL3 | SEG_S_NORMAL |
+                     SEG_TYPE_CODE | SEG_TYPE_RW | SEG_D);
+    task_manager.app_code_sel = sel;
     list_init(&task_manager.ready_list);
     list_init(&task_manager.task_list);
     list_init(&task_manager.sleep_list);
     task_init(&task_manager.idle_task,
-                "idle task", 
+                "idletask",
                 (uint32_t)idle_task_entry, 
                 (uint32_t)(idle_task_stack + IDLE_STACK_SIZE));     // 里面的值不必要写
     task_manager.curr_task =(task_t *)0;

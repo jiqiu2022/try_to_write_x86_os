@@ -6,6 +6,7 @@
 #include "tools/log.h"
 #include "tools/klib.h"
 #include "cpu/mmu.h"
+int memory_create_map (pde_t * page_dir, uint32_t vaddr, uint32_t paddr, int count, uint32_t perm);
 static addr_alloc_t paddr_alloc;        // 物理地址分配结构
 static pde_t kernel_page_dir[PDE_CNT] __attribute__((aligned(MEM_PAGE_SIZE))); // 内核页目录表
 
@@ -76,6 +77,33 @@ static uint32_t total_mem_size(boot_info_t * boot_info) {
     }
     return mem_size;
 }
+
+uint32_t memory_alloc_for_page_dir(uint32_t page_dir,uint32_t vaddr,uint32_t size,int perm){
+    uint32_t curr_vaddr =vaddr;
+    int page_count= up2(size,MEM_PAGE_SIZE)/MEM_PAGE_SIZE;
+    vaddr= down2(vaddr,MEM_PAGE_SIZE);
+    for (int i = 0; i < page_count; ++i) {
+        uint32_t paddr= addr_alloc_page(&paddr_alloc,1);
+        ASSERT(paddr!=0);
+
+
+
+        int err=memory_create_map((pde_t*)page_dir,curr_vaddr,paddr,1,perm);
+        if (err<0){
+            log_printf("create memory map failed. err = %d", err);
+            addr_free_page(&paddr_alloc, vaddr, i + 1);
+            return -1;
+        }
+        curr_vaddr += MEM_PAGE_SIZE;
+    }
+    return 0;
+}
+
+
+int memory_alloc_page_for(uint32_t addr,uint32_t size,int perm){
+    return memory_alloc_for_page_dir(task_current()->tss.cr3, addr, size, perm);
+
+}
 int memory_create_map (pde_t * page_dir, uint32_t vaddr, uint32_t paddr, int count, uint32_t perm) {
     for (int i = 0; i < count; i++) {
         //log_printf("create map: v-0x%x p-0x%x, perm: 0x%x", vaddr, paddr, perm);
@@ -88,7 +116,7 @@ int memory_create_map (pde_t * page_dir, uint32_t vaddr, uint32_t paddr, int cou
 
         // 创建映射的时候，这条pte应当是不存在的。
         // 如果存在，说明可能有问题
-        log_printf("\tpte addr: 0x%x", (uint32_t)pte);
+        //log_printf("\tpte addr: 0x%x", (uint32_t)pte);
         ASSERT(pte->present == 0);
 
         pte->v = paddr | perm | PTE_P;
@@ -161,15 +189,36 @@ pte_t *find_pte(pde_t * page_dir,uint32_t vaddr,int alloc) {
         if(pg_paddr==0){
             return (pte_t *)0;
         }
-        pde->v=pg_paddr|PTE_P;
-
+        pde->v = pg_paddr | PTE_P | PTE_W | PDE_U;
         page_table =(pte_t *)(pg_paddr);
         kernel_memset(page_table,0,MEM_PAGE_SIZE);
 
     }
     return page_table + pte_index(vaddr);
 }
+uint32_t memory_alloc_page (void) {
+    // 内核空间虚拟地址与物理地址相同
+    return addr_alloc_page(&paddr_alloc, 1);
+}
+static pde_t * current_page_dir (void) {
+    return (pde_t *)task_current()->tss.cr3;
+}
+void memory_free_page (uint32_t addr) {
+    if (addr < MEMORY_TASK_BASE) {
+        // 内核空间，直接释放
+        addr_free_page(&paddr_alloc, addr, 1);
+    } else {
+        // 进程空间，还要释放页表
+        pte_t * pte = find_pte(current_page_dir(), addr, 0);
+        ASSERT((pte == (pte_t *)0) && pte->present);
 
+        // 释放内存页
+        addr_free_page(&paddr_alloc, pte_paddr(pte), 1);
+
+        // 释放页表
+        pte->v = 0;
+    }
+}
 void memory_init(boot_info_t *bootInfo){
     extern uint8_t * mem_free_start;
     log_printf("mem init.");

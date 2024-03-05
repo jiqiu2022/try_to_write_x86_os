@@ -52,6 +52,7 @@ typedef struct _exception_frame_t {
     int num;
     int error_code;
     int eip, cs, eflags;
+    int esp3, ss3;
 }exception_frame_t;
 
 
@@ -77,6 +78,13 @@ typedef struct _exception_frame_t {
 #define PIC_OCW2_EOI		(1 << 5)		// 1 - 非特殊结束中断EOI命令
 
 #define IRQ_PIC_START		0x20			// PIC中断起始号
+
+#define ERR_PAGE_P          (1 << 0)
+#define ERR_PAGE_WR          (1 << 1)
+#define ERR_PAGE_US          (1 << 1)
+
+#define ERR_EXT             (1 << 0)
+#define ERR_IDT             (1 << 1)
 void irq_enable(int irq_num);
 void irq_disable(int irq_num);
 void irq_disable_global(void);

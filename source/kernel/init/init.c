@@ -29,6 +29,27 @@ static task_t first_task;
 static uint32_t init_task_stack[1024];
 static task_t init_task;
 static sem_t sem;
+
+void move_to_first_task(void) {
+    task_t * curr = task_current();
+    ASSERT(curr != 0);
+
+    tss_t * tss = &(curr->tss);
+
+    // 也可以使用类似boot跳loader中的函数指针跳转
+    // 这里用jmp是因为后续需要使用内联汇编添加其它代码
+    __asm__ __volatile__(
+        // 模拟中断返回，切换入第1个可运行应用进程
+        // 不过这里并不直接进入到进程的入口，而是先设置好段寄存器，再跳过去
+            "push %[ss]\n\t"			// SS
+            "push %[esp]\n\t"			// ESP
+            "push %[eflags]\n\t"           // EFLAGS
+            "push %[cs]\n\t"			// CS
+            "push %[eip]\n\t"		    // ip
+            "iret\n\t"::[ss]"r"(tss->ss),  [esp]"r"(tss->esp), [eflags]"r"(tss->eflags),
+    [cs]"r"(tss->cs), [eip]"r"(tss->eip));
+}
+
 void list_test (void) {
     list_t list;
     list_node_t nodes[5];
@@ -89,35 +110,16 @@ void list_test (void) {
 
 
 
-void init_task_entry(void) {
-    int count = 0;
 
-    for (;;) {
-        sem_wait(&sem);
-        log_printf("init task: %d", count++);
-//        sys_msleep(500);
-    }
-}
 
 void init_main(void) {
-    // list_test();
+
     log_printf("Kernel is running....");
     log_printf("Version: %s, name: %s", OS_VERSION, "tiny x86 os");
     log_printf("%d %d %x %c", -123, 123456, 0x12345, 'a');
-    //  int a = 3 / 0;
-    int a = 3;
-    ASSERT(a > 2);
-    // ASSERT(a < 2);
-    task_init(&init_task, "init task", (uint32_t)init_task_entry, (uint32_t)&init_task_stack[1024]);
+
+
     task_first_init();
-    sem_init(&sem, 2);
-    irq_enable_global();
-    int count = 0;
-    for (;;) {
-        log_printf("first task: %d", count++);
-        sem_notify(&sem);
-        sys_msleep(1000);
-        // sys_yield();
-    }
+    move_to_first_task();
     for (;;){}
 }
