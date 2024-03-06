@@ -3,7 +3,8 @@
 #include "comm/cpu_instr.h"
 #include "os_cfg.h"
 #include "tools/log.h"
-#define IDT_TABLE_NR			128				// IDT表项数量
+#include "core/syscall.h"
+#define IDT_TABLE_NR			256				// IDT表项数量
 static gate_desc_t idt_table[IDT_TABLE_NR];	// 中断描述表
 static void dump_core_regs (exception_frame_t * frame) {
     // 打印CPU寄存器相关内容
@@ -99,7 +100,8 @@ void irq_init(void) {
 	irq_install(IRQ19_XM, exception_handler_smd_exception);
 	irq_install(IRQ20_VE, exception_handler_virtual_exception);
 
-
+    gate_desc_set(idt_table + 0x80, KERNEL_SELECTOR_CS, (uint32_t) exception_handler_syscall,
+                  GATE_P_PRESENT | GATE_DPL3 | GATE_TYPE_IDT);
 	lidt((uint32_t)idt_table, sizeof(idt_table));
 	init_pic();
 }
