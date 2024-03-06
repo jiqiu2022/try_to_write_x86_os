@@ -91,3 +91,39 @@ exception_handler smd_exception, 19, 0
 exception_handler virtual_exception, 20, 0
 
 exception_handler timer, 0x20, 0
+
+    .text
+    .global exception_handler_syscall
+    .extern do_handler_syscall
+exception_handler_syscall:
+    // 保存前一任务的状态
+    	pusha
+    	push %ds
+    	push %es
+    	push %fs
+    	push %gs
+    	pushf
+
+    	// 使用内核段寄存器，避免使用应用层的
+    	mov $(KERNEL_SELECTOR_DS), %eax
+    	mov %eax, %ds
+    	mov %eax, %es
+    	mov %eax, %fs
+    	mov %eax, %gs
+
+        // 调用处理函数
+        mov %esp, %eax
+        push %eax
+    	call do_handler_syscall
+    	add $4, %esp
+
+        // 再切换回来
+    	popf
+    	pop %gs
+    	pop %fs
+    	pop %es
+    	pop %ds
+    	popa
+
+    	// 5个参数，加上5*4，不加会导致返回时ss取不出来，最后返回出现问题
+        retf $(5*4)

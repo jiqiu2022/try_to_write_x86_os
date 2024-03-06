@@ -108,6 +108,7 @@ int task_init (task_t *task,const char * name, uint32_t entry, uint32_t esp)
     task->time_slice = TASK_TIME_SLICE_DEFAULT;
     task->slice_ticks = task->time_slice;
     task->sleep_ticks=0;
+    task->pid=(int)task;
     list_node_init(&task->all_node);
     list_node_init(&task->run_node);
     irq_state_t state = irq_enter_protection();
@@ -270,3 +271,7 @@ void sys_msleep(uint32_t ms){
 
 }
 
+int sys_getpid (void) {
+    task_t * curr_task = task_current();
+    return curr_task->pid;
+}

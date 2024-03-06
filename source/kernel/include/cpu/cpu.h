@@ -13,6 +13,7 @@
 
 #define SEG_S_SYSTEM		(0 << 4)		// 是否是系统段，如调用门或者中断
 #define SEG_S_NORMAL		(1 << 4)		// 普通的代码段或数据段
+#define GATE_TYPE_SYSCALL	(0xC << 8)		// 调用门
 
 #define SEG_TYPE_CODE		(1 << 3)		// 指定其为代码段
 #define SEG_TYPE_DATA		(0 << 3)		// 数据段

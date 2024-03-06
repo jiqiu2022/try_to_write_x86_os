@@ -2,6 +2,7 @@
 #include "os_cfg.h"
 #include "comm/cpu_instr.h"
 #include "ipc/mutex.h"
+#include "core/syscall.h"
 static segment_desc_t gdt_table[GDT_TABLE_SIZE];
 static mutex_t mutex;
 
@@ -58,12 +59,16 @@ void init_gdt(void){
         segment_desc_set(i*sizeof(segment_desc_t),0,0,0);
         
     }
+    // gdt数据段的初始化
     segment_desc_set(KERNEL_SELECTOR_DS,0x00000000, 0xFFFFFFFF,SEG_P_PRESENT | SEG_DPL0 | SEG_S_NORMAL | SEG_TYPE_DATA
                      | SEG_TYPE_RW | SEG_D);
+    // gdt代码段的初始化
     segment_desc_set(KERNEL_SELECTOR_CS, 0x00000000, 0xFFFFFFFF,
                      SEG_P_PRESENT | SEG_DPL0 | SEG_S_NORMAL | SEG_TYPE_CODE
                      | SEG_TYPE_RW | SEG_D);
-     // 加载gdt
+    // 设置系统调用调用门
+    gate_desc_set((gate_desc_t *)(gdt_table + (SELECTOR_SYSCALL >> 3)),KERNEL_SELECTOR_CS,(uint32_t)exception_handler_syscall,GATE_P_PRESENT | GATE_DPL3 | GATE_TYPE_SYSCALL | SYSCALL_PARAM_COUNT);
+    // 加载gdt
     lgdt((uint32_t)gdt_table, sizeof(gdt_table));
 } 
 

@@ -23,6 +23,7 @@ typedef struct _task_t{
     list_node_t run_node;		// 运行相关结点
 	list_node_t all_node;		// 所有队列结点
     list_node_t wait_node;
+    int pid;
 }task_t;
 
 typedef struct _task_manager_t
@@ -57,4 +58,5 @@ void sys_msleep(uint32_t ms);
 void task_dispatch(void);
 task_t * task_current (void);
 void task_set_block (task_t *task);
+int sys_getpid(void);
 #endif
