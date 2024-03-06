@@ -20,6 +20,7 @@ static inline  int sys_call(syscall_args_t *args){
             0, SELECTOR_SYSCALL | 0
     };
     int ret;
+    // 准备使用int来进行跳转
     __asm__ __volatile__(
             "push %[arg3]\n\t"
             "push %[arg2]\n\t"
