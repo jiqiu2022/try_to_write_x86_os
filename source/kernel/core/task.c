@@ -7,9 +7,12 @@
 #include "cpu/irq.h"
 #include "core/memory.h"
 #include "cpu/mmu.h"
+#include "core/syscall.h"
 static uint32_t idle_task_stack[IDLE_STACK_SIZE];	// 空闲任务堆栈
 
 static task_manager_t task_manager;
+static task_t task_table[TASK_NR];
+static mutex_t task_table_mutex;
 
 int my_strcmp(const char *str1, const char *str2) {
     while (*str1 && (*str1 == *str2)) {
@@ -109,6 +112,7 @@ int task_init (task_t *task,const char * name, uint32_t entry, uint32_t esp)
     task->slice_ticks = task->time_slice;
     task->sleep_ticks=0;
     task->pid=(int)task;
+    task->parent=(task_t*)0;
     list_node_init(&task->all_node);
     list_node_init(&task->run_node);
     irq_state_t state = irq_enter_protection();
@@ -274,4 +278,87 @@ void sys_msleep(uint32_t ms){
 int sys_getpid (void) {
     task_t * curr_task = task_current();
     return curr_task->pid;
+}
+task_t * alloc_task(void){
+    task_t *task =(task_t *)0;
+    mutex_lock(&task_table_mutex);
+    for (int i = 0; i < TASK_NR; ++i) {
+        task_t * curr =task_table+i;
+        if (curr->name[0]=='\0'){
+            task=curr;
+            break;
+        }
+    }
+    mutex_unlock(&task_table_mutex);
+    return task;
+}
+static void free_task (task_t * task) {
+    mutex_lock(&task_table_mutex);
+    task->name[0] = 0;
+    mutex_unlock(&task_table_mutex);
+}
+void task_uninit (task_t * task) {
+    if (task->tss_sel) {
+        gdt_free_sel(task->tss_sel);
+    }
+
+    if (task->tss.esp0) {
+        memory_free_page(task->tss.esp0 - MEM_PAGE_SIZE);
+    }
+
+    if (task->tss.cr3) {
+        // 没有分配空间，暂时不写
+        //memory_destroy_uvm(task->tss.cr3);
+    }
+
+    kernel_memset(task, 0, sizeof(task_t));
+}
+
+int sys_fork (void) {
+    task_t * parent_task=task_current();
+    task_t *child_task= alloc_task();
+    if (child_task == (task_t *)0) {
+        log_printf("alloc task failed");
+        goto fork_failed;
+    }
+
+
+    syscall_frame_t * frame =(syscall_frame_t *)(parent_task->tss.esp0-sizeof (syscall_frame_t));
+    int err = task_init(child_task,  parent_task->name, frame->eip,
+                        frame->esp + sizeof(uint32_t)*SYSCALL_PARAM_COUNT);
+    if (err < 0) {
+        log_printf("task init failed");
+        goto fork_failed;
+    }
+    tss_t * tss = &child_task->tss;
+    tss->eax = 0;                       // 子进程返回0
+    tss->ebx = frame->ebx;
+    tss->ecx = frame->ecx;
+    tss->edx = frame->edx;
+    tss->esi = frame->esi;
+    tss->edi = frame->edi;
+    tss->ebp = frame->ebp;
+
+    tss->cs = frame->cs;
+    tss->ds = frame->ds;
+    tss->es = frame->es;
+    tss->fs = frame->fs;
+    tss->gs = frame->gs;
+    tss->eflags = frame->eflags;
+    child_task->parent = parent_task;
+
+
+//    child_task->tss.cr3 = parent_task->tss.cr3;
+    if ((child_task->tss.cr3 = memory_copy_uvm(parent_task->tss.cr3)) < 0) {
+        goto fork_failed;
+    }
+    // 创建成功，返回子进程的pid
+    return (uint32_t)child_task->pid;   // 暂时用这个
+fork_failed:
+    if (child_task) {
+        free_task(child_task);
+        task_uninit(child_task);
+
+    }
+    return -1;
 }

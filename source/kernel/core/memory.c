@@ -243,3 +243,72 @@ void memory_init(boot_info_t *bootInfo){
     // 先切换到当前页表
     mmu_set_page_dir((uint32_t)kernel_page_dir);
 }
+void memory_destroy_uvm(uint32_t page_dir){
+    uint32_t user_pde_start = pde_index(MEMORY_TASK_BASE);
+    pde_t* pde=(pde_t*)page_dir+user_pde_start;
+    for (int i = user_pde_start; i < PDE_CNT; ++i,pde++) {
+        if (!pde->present){
+            continue;
+        } else{
+            pte_t * pte = (pte_t *)pde_paddr(pde);
+            for (int j = 0; j < PTE_CNT; j++, pte++) {
+                if (!pte->present) {
+                    continue;
+                }
+
+                addr_free_page(&paddr_alloc, pte_paddr(pte), 1);
+            }
+            addr_free_page(&paddr_alloc, pte_paddr(pte), 1);
+        }
+        addr_free_page(&paddr_alloc, (uint32_t)pde_paddr(pde), 1);
+
+    }
+}
+
+
+uint32_t memory_copy_uvm (uint32_t page_dir){
+    uint32_t  to_page_dir =memory_create_uvm();
+    if(to_page_dir==0){
+        log_printf("create page dir failed");
+        goto copy_uvm_failed;
+    }
+
+    uint32_t user_pde_start = pde_index(MEMORY_TASK_BASE);
+    pde_t * pde = (pde_t *)page_dir + user_pde_start;
+
+    // 遍历用户空间页目录项
+    for (int i = user_pde_start; i < PDE_CNT; i++, pde++) {
+        if (!pde->present) {
+            continue;
+        }
+
+        // 遍历页表
+        pte_t * pte = (pte_t *)pde_paddr(pde);
+        for (int j = 0; j < PTE_CNT; j++, pte++) {
+            if (!pte->present) {
+                continue;
+            }
+
+            // 分配物理内存
+            uint32_t page = addr_alloc_page(&paddr_alloc, 1);
+            if (page == 0) {
+                goto copy_uvm_failed;
+            }
+
+            // 建立映射关系
+            uint32_t vaddr = (i << 22) | (j << 12);
+            int err = memory_create_map((pde_t *)to_page_dir, vaddr, page, 1, get_pte_perm(pte));
+            if (err < 0) {
+                goto copy_uvm_failed;
+            }
+
+            // 复制内容。
+            kernel_memcpy((void *)page, (void *)vaddr, MEM_PAGE_SIZE);
+        }
+    }
+    return to_page_dir;
+copy_uvm_failed:
+    if(to_page_dir){
+        memory_destroy_uvm(to_page_dir);
+    }
+}

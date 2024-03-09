@@ -13,7 +13,7 @@ void mutex_init (mutex_t * mutex){
 void mutex_lock(mutex_t * mutex){
     irq_state_t  irqState =irq_enter_protection();
     task_t * curr =task_current();
-    if(mutex->locked_count==0){
+    if(mutex->locked_count==0|| mutex->owner==(task_t*)0){
         mutex->locked_count=1;
         mutex->owner=curr;
     } else if (mutex->owner==curr){

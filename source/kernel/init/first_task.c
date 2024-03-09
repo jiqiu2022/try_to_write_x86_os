@@ -9,8 +9,22 @@
 
 
 int first_task_main(void){
-    int pid = get_pid();
+    int count = 3;
 
+    int pid = get_pid();
+    print_msg("first task id=%d", pid);
+
+    pid = fork();
+    if (pid < 0) {
+        print_msg("create child proc failed.", 0);
+    } else if (pid == 0) {
+        print_msg("child: %d", count);
+    } else {
+        print_msg("child task id=%d", pid);
+        print_msg("parent: %d", count);
+    }
+
+    pid = get_pid();
     for (;;) {
         print_msg("task id = %d", pid);
         msleep(1000);

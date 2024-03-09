@@ -24,6 +24,7 @@ typedef struct _task_t{
 	list_node_t all_node;		// 所有队列结点
     list_node_t wait_node;
     int pid;
+    struct _task_t * parent;
 }task_t;
 
 typedef struct _task_manager_t
@@ -34,7 +35,7 @@ typedef struct _task_manager_t
     list_t ready_list;
     list_t task_list;
     list_t sleep_list;
-    
+
     task_t first_task;
     task_t idle_task;			// 空闲任务
 
@@ -59,4 +60,6 @@ void task_dispatch(void);
 task_t * task_current (void);
 void task_set_block (task_t *task);
 int sys_getpid(void);
+int sys_fork (void);
+
 #endif

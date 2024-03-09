@@ -12,11 +12,12 @@ static const syscall_handler_t sys_table[] = {
         [SYS_msleep] = (syscall_handler_t)sys_msleep,
         [SYS_getpid] =(syscall_handler_t)sys_getpid,
         [SYS_printmsg] = (syscall_handler_t)sys_print_msg,
-
+        [SYS_fork] = (syscall_handler_t)sys_fork,
 
 };
 int sys_print_msg (char * fmt, int arg) {
     log_printf(fmt, arg);
+    return 0;
 }
 /**
  * 处理系统调用。该函数由系统调用函数调用
