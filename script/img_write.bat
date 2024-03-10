@@ -11,7 +11,7 @@ set DISK1_NAME=disk1.vhd
 
 @REM  写应用程序init，临时使用
 @REM "C:\Program Files\Git\usr\bin\dd.exe"  if=init.elf of=%DISK1_NAME% bs=512 conv=notrunc seek=5000
-@REM "C:\Program Files\Git\usr\bin\dd.exe"  if=shell.elf of=%DISK1_NAME% bs=512 conv=notrunc seek=5000
+"C:\Program Files\Git\usr\bin\dd.exe"  if=shell.elf of=%DISK1_NAME% bs=512 conv=notrunc seek=5000
 
 @REM 写应用程序，使用系统的挂载命令
 @REM set DISK2_NAME=disk2.vhd

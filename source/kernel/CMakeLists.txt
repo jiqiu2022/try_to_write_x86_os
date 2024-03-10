@@ -10,7 +10,7 @@ set(CMAKE_C_LINK_EXECUTABLE "${LINKER_TOOL} <OBJECTS> ${CMAKE_EXE_LINKER_FLAGS} 
 file(GLOB_RECURSE C_LIST "*.c" "*.h" "*.S")
 add_executable(${PROJECT_NAME} init/start.S ${C_LIST}
         include/core/syscall.h
-        core/syscall.c)
+        core/syscall.c  init/first_task.c)
 
 # 不带调试信息的elf生成，何种更小，写入到image目录下
 add_custom_command(TARGET ${PROJECT_NAME}

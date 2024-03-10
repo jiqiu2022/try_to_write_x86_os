@@ -2,6 +2,12 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/build/source/kernel/kernel_dis.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/source/applib/CMakeLists.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/applib/crt0.S" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/applib/cstart.c" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/kernel/include/core/syscall.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/source/shell/CMakeLists.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/source/shell/main.c" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>

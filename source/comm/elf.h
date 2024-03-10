@@ -10,13 +10,12 @@ typedef uint16_t Elf32_Half;
 typedef uint32_t Elf32_Off;
 typedef uint32_t Elf32_Sword;
 typedef uint32_t Elf32_Word;
-
-#pragma pack(1)
-
-// ELF Header
+#define ET_EXEC         2   // 可执行文件
+#define ET_386          3   // 80386处理器
+#define PT_LOAD         1   // 可加载类型
 #define EI_NIDENT       16
 #define ELF_MAGIC       0x7F
-
+#pragma pack(1)
 typedef struct {
     char e_ident[EI_NIDENT];
     Elf32_Half e_type;
@@ -33,9 +32,6 @@ typedef struct {
     Elf32_Half e_shnum;
     Elf32_Half e_shstrndx;
 }Elf32_Ehdr;
-
-#define PT_LOAD         1
-
 typedef struct {
     Elf32_Word p_type;
     Elf32_Off p_offset;
@@ -46,7 +42,6 @@ typedef struct {
     Elf32_Word p_flags;
     Elf32_Word p_align;
 } Elf32_Phdr;
-
 #pragma pack()
 
 #endif //OS_ELF_H

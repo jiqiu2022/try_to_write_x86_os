@@ -43,7 +43,11 @@ typedef struct _task_manager_t
     int app_code_sel;			// 任务代码段选择子
     int app_data_sel;			// 应用任务的数据段选择子
 }task_manager_t;
-
+typedef struct _task_args_t {
+    uint32_t ret_addr;		// 返回地址，无用
+    uint32_t argc;
+    char **argv;
+}task_args_t;
 
 
 void task_switch_from_to (task_t * from, task_t * to);
@@ -61,5 +65,5 @@ task_t * task_current (void);
 void task_set_block (task_t *task);
 int sys_getpid(void);
 int sys_fork (void);
-
+int sys_execve(char *name, char **argv, char **env) ;
 #endif
