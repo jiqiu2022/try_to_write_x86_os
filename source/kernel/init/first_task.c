@@ -11,7 +11,7 @@
 int first_task_main(void){
     int count = 3;
 
-    int pid = get_pid();
+    int pid = getpid();
     print_msg("first task id=%d", pid);
 
     pid = fork();
@@ -27,7 +27,7 @@ int first_task_main(void){
         print_msg("parent: %d", count);
     }
 
-    pid = get_pid();
+    pid = getpid();
     for (;;) {
         print_msg("task id = %d", pid);
         msleep(1000);

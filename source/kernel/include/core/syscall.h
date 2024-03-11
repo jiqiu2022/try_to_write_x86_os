@@ -1,7 +1,7 @@
 //
 // Created by jiqiu2021 on 2024-03-06.
 //
-
+#include <sys/stat.h>
 #ifndef OS_SYSCALL_H
 #define OS_SYSCALL_H
 #define SYSCALL_PARAM_COUNT     5       	// 系统调用最大支持的参数
@@ -12,6 +12,15 @@
 #define SYS_execve				3
 #define SYS_yield         4
 
+
+#define SYS_open                50
+#define SYS_read                51
+#define SYS_write               52
+#define SYS_close               53
+#define SYS_lseek				54
+#define SYS_isatty              55
+#define SYS_sbrk                56
+#define SYS_fstat               57
 void exception_handler_syscall (void);		// syscall处理
 typedef struct _syscall_frame_t {
     int eflags;

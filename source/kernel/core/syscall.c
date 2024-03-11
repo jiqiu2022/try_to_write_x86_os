@@ -3,6 +3,8 @@
 #include "tools/klib.h"
 #include "core/task.h"
 #include "tools/log.h"
+#include "fs/fs.h"
+#include "core/memory.h"
 
 // 系统调用处理函数类型
 typedef int (*syscall_handler_t)(uint32_t arg0, uint32_t arg1, uint32_t arg2, uint32_t arg3);
@@ -15,6 +17,12 @@ static const syscall_handler_t sys_table[] = {
         [SYS_fork] = (syscall_handler_t)sys_fork,
         [SYS_execve] = (syscall_handler_t)sys_execve,
         [SYS_yield]=(syscall_handler_t)sys_yield,
+        [SYS_isatty] = (syscall_handler_t)sys_isatty,
+        [SYS_sbrk] = (syscall_handler_t)sys_sbrk,
+        [SYS_fstat] = (syscall_handler_t)sys_fstat,
+        [SYS_write] = (syscall_handler_t)sys_write,
+        [SYS_close] = (syscall_handler_t)sys_close,
+        [SYS_lseek] = (syscall_handler_t)sys_lseek,
 };
 int sys_print_msg (char * fmt, int arg) {
     log_printf(fmt, arg);

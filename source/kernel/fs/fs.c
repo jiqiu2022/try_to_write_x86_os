@@ -6,6 +6,8 @@
 #include "tools/klib.h"
 #include "fs/fs.h"
 #include "comm/boot_info.h"
+#include <sys/stat.h>
+#include "tools/log.h"
 #define TEMP_FILE_ID        100
 #define TEMP_ADDR       (8*1024*1024)
 static uint8_t * temp_pos;
@@ -56,7 +58,9 @@ int sys_read(int file, char *ptr, int len){
     return -1;
 }
 int sys_write(int file, char *ptr, int len){
-    return -1;
+    ptr[len] = '\0';
+    log_printf("%s", ptr);
+    return len;
 }
 int sys_lseek(int file, int ptr, int dir) {
     if (file == TEMP_FILE_ID) {
@@ -69,4 +73,19 @@ int sys_lseek(int file, int ptr, int dir) {
 }
 int sys_close(int file){
     return -1;
+}
+/**
+ * 判断文件描述符与tty关联
+ */
+int sys_isatty(int file) {
+    return -1;
+}
+
+/**
+ * @brief 获取文件状态
+ */
+int sys_fstat(int file, struct stat *st) {
+    kernel_memset(st, 0, sizeof(struct stat));
+    st->st_size = 0;
+    return 0;
 }

@@ -4,10 +4,11 @@
 
 #ifndef OS_LIB_SYSCALL_H
 #define OS_LIB_SYSCALL_H
-#include "os_cfg.h"
-#include "core/syscall.h"
 
-typedef struct _syscall_args{
+#include "core/syscall.h"
+#include "os_cfg.h"
+#include <sys/stat.h>
+typedef struct _syscall_args_t {
     int id;
     int arg0;
     int arg1;
@@ -15,72 +16,16 @@ typedef struct _syscall_args{
     int arg3;
 }syscall_args_t;
 
-static inline  int sys_call(syscall_args_t *args){
-    const unsigned long sys_gate_addr[]={
-            0, SELECTOR_SYSCALL | 0
-    };
-    int ret;
-    __asm__ __volatile__(
-            "push %[arg3]\n\t"
-            "push %[arg2]\n\t"
-            "push %[arg1]\n\t"
-            "push %[arg0]\n\t"
-            "push %[id]\n\t"
-            "lcalll *(%[gate])\n\n"
-            :"=a"(ret)
-            :[arg3]"r"(args->arg3), [arg2]"r"(args->arg2), [arg1]"r"(args->arg1),
-    [arg0]"r"(args->arg0), [id]"r"(args->id),
-    [gate]"r"(sys_gate_addr));
-    return ret;
+int msleep (int ms);
+int fork(void);
+int getpid(void);
+int yield (void);
+int execve(const char *name, char * const *argv, char * const *env);
+int print_msg(char * fmt, int arg);
 
-
-}
-static inline int msleep (int ms) {
-    if (ms <= 0) {
-        return 0;
-    }
-
-    syscall_args_t args;
-    args.id = SYS_msleep;
-    args.arg0 = ms;
-    return sys_call(&args);
-}
-static inline int get_pid () {
-
-    syscall_args_t args;
-    args.id = SYS_getpid;
-    return sys_call(&args);
-}
-
-static inline int print_msg(char * fmt, int arg) {
-    syscall_args_t args;
-    args.id = SYS_printmsg;
-    args.arg0 = (int)fmt;
-    args.arg1 = arg;
-    return sys_call(&args);
-}
-
-
-static inline int fork() {
-    syscall_args_t args;
-    args.id = SYS_fork;
-    return sys_call(&args);
-}
-
-static inline  int execve(const char *name,char * const *argv, char * const *env){
-    syscall_args_t args;
-    args.id=SYS_execve;
-    args.arg0=(int)name;
-    args.arg1=(int)argv;
-    args.arg2=(int)env;
-    return sys_call(&args);
-
-}
-
-static inline  int yield(){
-    syscall_args_t args;
-    args.id=SYS_yield;
-    return sys_call(&args);
-
-}
+int open(const char *name, int flags, ...);
+int read(int file, char *ptr, int len);
+int write(int file, char *ptr, int len);
+int close(int file);
+int lseek(int file, int ptr, int dir);
 #endif //OS_LIB_SYSCALL_H

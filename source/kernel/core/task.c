@@ -89,6 +89,8 @@ void task_first_init (void) {
 
     uint32_t first_start =(uint32_t)first_task_entry;
     task_init(&task_manager.first_task, "first task", first_start, first_start + alloc_size);
+    task_manager.first_task.heap_start = (uint32_t)e_first_task;  // 这里不对
+    task_manager.first_task.heap_end = task_manager.first_task.heap_start;
     task_manager.curr_task = &task_manager.first_task;
 
 
@@ -118,6 +120,8 @@ int task_init (task_t *task,const char * name, uint32_t entry, uint32_t esp)
     task->sleep_ticks=0;
     task->pid=(int)task;
     task->parent=(task_t*)0;
+    task->heap_start = 0;
+    task->heap_end = 0;
     list_node_init(&task->all_node);
     list_node_init(&task->run_node);
     irq_state_t state = irq_enter_protection();
@@ -434,6 +438,8 @@ static uint32_t load_elf_file (task_t * task, const char * name, uint32_t page_d
             log_printf("load program hdr failed");
             goto load_failed;
         }
+        task->heap_start = elf_phdr.p_vaddr + elf_phdr.p_memsz;
+        task->heap_end = task->heap_start;
     }
 
     sys_close(file);

@@ -23,6 +23,9 @@ typedef struct _task_t{
     list_node_t run_node;		// 运行相关结点
 	list_node_t all_node;		// 所有队列结点
     list_node_t wait_node;
+    uint32_t heap_start;		// 堆的顶层地址
+    uint32_t heap_end;			// 堆结束地址
+
     int pid;
     struct _task_t * parent;
 }task_t;
@@ -30,7 +33,6 @@ typedef struct _task_t{
 typedef struct _task_manager_t
 {
     task_t * curr_task;
-    
 
     list_t ready_list;
     list_t task_list;
