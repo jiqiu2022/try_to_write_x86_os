@@ -62,6 +62,7 @@ void task_time_tick (void);
 void sys_msleep(uint32_t ms);
 void task_dispatch(void);
 task_t * task_current (void);
+void task_start(task_t * task);
 void task_set_block (task_t *task);
 int sys_getpid(void);
 int sys_fork (void);

@@ -95,7 +95,10 @@ void task_first_init (void) {
     mmu_set_page_dir(task_manager.first_task.tss.cr3);
     memory_alloc_page_for(first_start,  alloc_size, PTE_P | PTE_W | PTE_U);
     kernel_memcpy((void *)first_start, (void *)s_first_task, copy_size);
+
+    task_start(&task_manager.first_task);
     // 写TR寄存器，指示当前运行的第一个任务
+
     write_tr(task_manager.first_task.tss_sel);
 }
 //初始化任务
@@ -119,7 +122,7 @@ int task_init (task_t *task,const char * name, uint32_t entry, uint32_t esp)
     list_node_init(&task->run_node);
     irq_state_t state = irq_enter_protection();
 
-    task_set_ready(task);
+    //task_set_ready(task);
     list_insert_last(&task_manager.task_list,&task->all_node);
     irq_leave_protection(state);
 
@@ -138,6 +141,8 @@ static void idle_task_entry (void) {
     }
 }
 void task_manager_init(void){
+    kernel_memset(task_table, 0, sizeof(task_table));
+    mutex_init(&task_table_mutex);
     int sel = gdt_alloc_desc();
     segment_desc_set(sel, 0x00000000, 0xFFFFFFFF,
                      SEG_P_PRESENT | SEG_DPL3 | SEG_S_NORMAL |
@@ -157,8 +162,15 @@ void task_manager_init(void){
                 (uint32_t)idle_task_entry, 
                 (uint32_t)(idle_task_stack + IDLE_STACK_SIZE));     // 里面的值不必要写
     task_manager.curr_task =(task_t *)0;
+    task_start(&task_manager.idle_task);
 
 
+
+}
+void task_start(task_t * task) {
+    irq_state_t state = irq_enter_protection();
+    task_set_ready(task);
+    irq_leave_protection(state);
 }
 
 task_t * task_current (void) {
@@ -474,6 +486,7 @@ int sys_fork (void) {
     if ((child_task->tss.cr3 = memory_copy_uvm(parent_task->tss.cr3)) < 0) {
         goto fork_failed;
     }
+    task_start(child_task);
     // 创建成功，返回子进程的pid
     return (uint32_t)child_task->pid;   // 暂时用这个
 fork_failed:

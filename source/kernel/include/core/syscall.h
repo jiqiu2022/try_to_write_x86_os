@@ -10,7 +10,7 @@
 #define SYS_printmsg            100
 #define SYS_fork				2
 #define SYS_execve				3
-
+#define SYS_yield         4
 
 void exception_handler_syscall (void);		// syscall¥¶¿Ì
 typedef struct _syscall_frame_t {

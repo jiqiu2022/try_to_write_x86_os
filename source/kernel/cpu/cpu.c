@@ -6,20 +6,21 @@
 static segment_desc_t gdt_table[GDT_TABLE_SIZE];
 static mutex_t mutex;
 
-int gdt_alloc_desc(void){
+int gdt_alloc_desc (void) {
+    int i;
+
+    // 跳过第0项
     mutex_lock(&mutex);
-    for (int i = 1; i < GDT_TABLE_SIZE; i++)
-    {
-        segment_desc_t *desc =gdt_table+i;
-        if (desc->attr==0)
-        {
-            return i *sizeof(segment_desc_t);
+    for (i = 1; i < GDT_TABLE_SIZE; i++) {
+        segment_desc_t * desc = gdt_table + i;
+        if (desc->attr == 0) {
+            desc->attr = SEG_P_PRESENT;     // 标记为占用状态
+            break;
         }
-        
     }
     mutex_unlock(&mutex);
-    return -1;
-    
+
+    return i >= GDT_TABLE_SIZE ? -1 : i * sizeof(segment_desc_t);;
 }
 void switch_to_tss (uint32_t tss_selector) {
     far_jump(tss_selector, 0);
